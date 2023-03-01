@@ -18,7 +18,7 @@ const getInmuebleByIdController = async (req, res) => {
 
     } catch (error) {
         return res.status(500).json({
-            msg: 'Information coult get'
+            msg: 'Information couldnt get'
         })
     }
 }
