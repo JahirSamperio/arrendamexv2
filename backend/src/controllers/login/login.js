@@ -8,11 +8,15 @@ const logUserControllers = async (req = request, res = response) => {
         let response = await logUserServices(email, password);
         
         return res.status(200).json({
-            response
+            msg: 'Al tiro bro'
         })
     } catch (err) {
         return res.status(500).json({
             msg: 'Information coult get'
         })
     }
+}
+
+module.exports = {
+    logUserControllers
 }
