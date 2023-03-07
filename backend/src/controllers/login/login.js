@@ -3,12 +3,18 @@ const {
 } = require('../../services/login/login');
 
 const logUserControllers = async (req = request, res = response) => {
-    const {email, password} = req.body;
+    const data = req.body;
     try {
-        let response = await logUserServices(email, password);
+        let response = await logUserServices(data);
         
+        if(response.length === 0){
+            return res.status(404).json({
+                msg: "User not found",
+                data
+            })
+        }
         return res.status(200).json({
-            msg: 'Al tiro bro'
+            response: response[0]
         })
     } catch (err) {
         return res.status(500).json({
