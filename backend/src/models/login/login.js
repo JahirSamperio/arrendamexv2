@@ -1,5 +1,6 @@
 const {conexion} = require('../../db/config');
 
+//Inicio de sesion
 function logUserModel(data){
     const {email, password} = data;
     return new Promise((resolve, reject) => {
