@@ -1,5 +1,6 @@
 const {conexion} = require('../../db/config');
 
+//Selecciona inmuebles de un solo usuario
 function getInmuebleByIdModel(id_usuario) {
     return new Promise((resolve, reject) => {
         conexion.query(
@@ -16,6 +17,7 @@ function getInmuebleByIdModel(id_usuario) {
     })
 }
 
+//Selecciona inmuebles con el nombre solicitado
 function getInmuebleByNameModel(nombre) {
     return new Promise((resolve, reject) => {
         conexion.query(
@@ -31,7 +33,7 @@ function getInmuebleByNameModel(nombre) {
             
     })
 }
-
+//Filtro de renta o venta
 function searchInmuebleByRentaModel(renta_venta) {
     return new Promise((resolve, reject) => {
         conexion.query(
@@ -45,6 +47,7 @@ function searchInmuebleByRentaModel(renta_venta) {
             })
     })
 }
+//Inserta nuevo inmueble
 function newInmuebleModel(data) {
     const {nombre, descripcion, tipoInmueble, id_usuario, renta_venta, precio, precio_por_mes} = data;
     return new Promise((resolve, reject) => {
@@ -58,7 +61,7 @@ function newInmuebleModel(data) {
             })
     })
 }
-
+//Selecciona inmueble por el tipo que es
 function searchInmuebleByTypeModel(tipoInmueble) {
     return new Promise((resolve, reject) => {
         conexion.query(

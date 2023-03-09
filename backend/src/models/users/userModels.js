@@ -1,6 +1,6 @@
 const {conexion} = require('../../db/config');
 
-
+//Selecciona informacion del inmueble
 function getInformationUserModel(data) {
 
     const {id} = data;
@@ -18,7 +18,7 @@ function getInformationUserModel(data) {
     })
 }
 
-
+//Registro de nuevo usuario
 function newUserModels(data){
     const {nombre, apellidos, email, password} = data;
     
@@ -34,7 +34,7 @@ function newUserModels(data){
     })
 }
 
-
+//Edicion de la informacion del usuario
 function editUserModels(id, data){
     const {nombre, apellidos, password} = data;
     
