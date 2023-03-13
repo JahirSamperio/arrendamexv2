@@ -10,6 +10,8 @@ app.use('/inmueble', require('./inmuebles/inmuebles'));
 
 app.use('/log', require('./login/login'));
 
+app.use('/uploads', require('./uploads/uploads'));
+
 module.exports = app;
 
 
