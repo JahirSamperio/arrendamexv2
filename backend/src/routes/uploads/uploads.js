@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const { logUserControllers } = require('../../controllers/login/login');
+const { check } = require('express-validator');
 const { validateLogin } = require('../../validator/login/verificateLogin');
+const { cargarArchivo } = require('../../controllers/uploads/uploads');
 
 const router = Router();
 
-router.get('/login', logUserControllers, validateLogin);
-
+router.post('/upload', cargarArchivo);
 
 module.exports = router;

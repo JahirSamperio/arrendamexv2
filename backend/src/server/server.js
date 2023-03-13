@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fileUpload = require('express-fileupload');
 const expressLayouts = require('express-ejs-layouts');
 const { dbConnection } = require("../db/config")
 
@@ -46,6 +47,12 @@ class Server {
         this.app.set('view engine', 'ejs');
         this.app.use(expressLayouts);
         this.app.use(router.routes);
+
+        //carga de archivos
+        this.app.use(fileUpload({
+            useTempFiles : true,
+            tempFileDir : '/tmp/'
+        }));
 
         //inicio
         this.app.use(express.static(path.join(__dirname, '../public')));
