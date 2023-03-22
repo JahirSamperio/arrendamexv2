@@ -5,7 +5,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 
 
-export function Registrer  () {
+export function Register  () {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -46,13 +46,15 @@ export function Registrer  () {
                 handleRegistrernUser(e)
             }}>
                 <input type="email" placeholder="usuario" name="user"/>
-                <input type="password" name="password"  placeholder="contrasena"/>
+                <input type="password" name="password"  placeholder="Contraseña"/>
                 <input type="text" name="nombreUsuario" placeholder="Su nombre(s)" />
                 <input type="text" name="apellidoUsuario" placeholder="Sus apellido(s)" />
 
 
                 <input type="submit" name="submit"  />
             </form>
+
+            <input type="button" name="log" id="log" className="B" />
 
         </div>
         

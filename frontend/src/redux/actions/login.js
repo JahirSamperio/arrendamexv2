@@ -5,7 +5,7 @@ import {
     fetchNewFailure
 } from "../slices/users/newUserSlice";
 
-export const newUser = (dataForm) => async (dispatch) => {
+export const login = (dataForm) => async (dispatch) => {
     console.log(dataForm);
 
     try {
