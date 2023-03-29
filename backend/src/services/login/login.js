@@ -4,7 +4,7 @@ const {
 
 const logUserServices = async (data) => {
     try{
-        let response = await logUserModel(data);        
+        let response = await logUserModel(email, password);        
         return response;
     } catch(error){
         return error;

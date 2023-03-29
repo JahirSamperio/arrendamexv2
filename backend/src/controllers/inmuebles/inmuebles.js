@@ -39,10 +39,10 @@ const getInmuebleByNameController = async (req, res) => {
     }
 }
 
-const newInmuebleController = async (req, res) => {
+const newInmuebleController = async (req = request, res) => {
     const { nombre, descripcion, tipoInmueble, renta_venta, precio} = req.body;
     try {
-        let response = await newInmuebleService(req.body);
+        let response = await newInmuebleService(req);
         
         return res.status(200).json({
             response

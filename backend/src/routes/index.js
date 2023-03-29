@@ -12,7 +12,10 @@ app.use('/log', require('./login/login'));
 
 app.use('/uploads', require('./uploads/uploads'));
 
-module.exports = app;
+app.use('/arrendadores', require('./arrendadores/arrendadores'));
 
+app.use('/contratos', require('./contratos/contratos'));
+
+module.exports = app;
 
 

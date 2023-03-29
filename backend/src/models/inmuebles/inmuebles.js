@@ -49,11 +49,11 @@ function searchInmuebleByRentaModel(renta_venta) {
 }
 //Inserta nuevo inmueble
 function newInmuebleModel(data) {
-    const {nombre, descripcion, tipoInmueble, id_usuario, renta_venta, precio, precio_por_mes} = data;
+    const {nombre, descripcion, tipoInmueble, id_usuario, renta_venta, precio, precio_por_mes, pathImage} = data;
     return new Promise((resolve, reject) => {
         conexion.query(
-            `INSERT INTO inmuebles(nombre, descripcion, tipoInmueble, renta_venta, precio)
-            VALUES ('${nombre}', '${descripcion}', '${tipoInmueble}', '${renta_venta}', '${precio}')`,
+            `INSERT INTO inmuebles(nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage)
+            VALUES ('${nombre}', '${descripcion}', '${tipoInmueble}', '${renta_venta}', '${precio}', '${pathImage}')`,
             function (error, result, field) {
                 if (error) 
                     return reject(error);
