@@ -36,13 +36,32 @@ function newUserModels(data){
 
 //Edicion de la informacion del usuario
 function editUserModels(id, data){
-    const {nombre, apellidos, password} = data;
+    const {nombre, apellidos, password, email, telefono} = data;
     
     return new Promise((resolve, reject) => {
         conexion.query(
-            `UPDATE usuarios u
-            SET nombre = '${nombre}', apellidos = '${apellidos}', password = '${password}
-            WHERE u.id = '${id}'}`,
+            `UPDATE usuarios 
+            SET nombre = '${nombre}', apellidos = '${apellidos}', password = '${password}, email = '${email}', telefono = '${telefono}'
+            WHERE usuarios.id = '${id}'`,
+            function(error, result, field){
+                if(error) 
+                    return reject(error);
+                return resolve(result);
+            })
+    })
+}
+
+
+//Relacionar usuario e inmueble
+function userInmuebleInformation(id, data){
+    const {} = data;
+    
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `SELECT c
+            FROM contratos c
+            INNER JOIN 
+            WHERE usuarios.id = '${id}'}`,
             function(error, result, field){
                 if(error) 
                     return reject(error);

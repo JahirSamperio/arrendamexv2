@@ -1,11 +1,13 @@
+const { response, request } = require("express");
+
 const {
     logUserServices
 } = require('../../services/login/login');
 
 const logUserControllers = async (req = request, res = response) => {
-    const data = req.body;
+    const {email, password} = req.body;
     try {
-        let response = await logUserServices(data);
+        let response = await logUserServices(email, password);
         
         if(response.length === 0){
             return res.status(404).json({
