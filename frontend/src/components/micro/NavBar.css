@@ -1,0 +1,57 @@
+*{
+    margin:0;
+    padding: 0;
+
+}
+
+.navBar{
+    background-color: #3f6a9e;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;   
+    border-radius: 18px;
+}
+
+.logo{
+
+    padding: 5px;
+    color: azure;
+}
+
+.navBar-links{
+    display: flex;
+    width: 200px;
+    color: rgb(229, 234, 238);
+    font-size: 24px;
+    text-decoration: none; 
+    list-style-type: none;;
+    justify-content:space-between;
+    margin: 5px;
+}
+
+.navBar-links_link:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out 1000ms;
+  
+
+}
+
+
+.login-btn{
+  background-color: #f0f0f0;
+  border: none;
+  color: #3f3c3c;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:  18px;
+}
+
+.navBar .login-btn:hover{
+    color: azure;
+    background-color: #3e3a3a;
+    cursor: pointer;
+}
