@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.forms_page{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    height: 100vh;
+}
+
+.logo_section{
+    background-image: url(./../../public/img/imagen1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+
+
+.k{
+    margin-left: 28rem;
+    color: #e4dada;
+}
+.form_section{
+    background-color: rgb(17, 17, 18);
+}
+
+
+.nav-{
+    
+    background-color: #684a65;
+    padding-top: 1rem;
+    display: flex;
+    width: auto;
+    justify-content:flex-start;
+    height: 4rem;
+    padding-bottom: 1rem;
+    
+}
+
+.nav-links{
+
+    display: flex;
+    width: 260px;
+    justify-content: space-between;
+
+}
+
+.nav-link{
+    padding: 3px;
+    list-style: none;
+    margin: auto;
+    background-color: #e4dada;
+    border: none;
+    color: #312e2e;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 26px;
+    border-radius:  5px;
+    cursor: pointer;
+}
+.nav-link:hover{
+    transform: scale(1.1);
+    background-color: rgb(102, 102, 212);
+    color: #f3f0f0;
+    transition: transform .5s;
+}
+
+.formulario-{
+    max-width: 450px;
+    height: auto;
+    width: auto;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form2-p{
+    color: var(--color);
+    font-weight: 600;
+    font-size: 1.8rem;
+    padding-left: 3em ;
+    padding-right: 3em;
+    padding-top: 1.8em;
+}

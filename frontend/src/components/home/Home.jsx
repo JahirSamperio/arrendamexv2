@@ -1,5 +1,5 @@
 import  NavBar  from "../micro/NavBar";
-
+import './home.css'
 
 const Home = () =>{
     return(

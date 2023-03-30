@@ -4,8 +4,15 @@
 
 }
 
+.nose{
+
+    width: 80rem;
+    margin: auto;
+}
+
 .navBar{
-    background-color: #3f6a9e;
+    width: auto;
+    background-color: #393c3f;
     display: flex;
     justify-content: space-between;
     height: 40px;   
@@ -13,7 +20,7 @@
 }
 
 .logo{
-
+    margin-left: 30px;
     padding: 5px;
     color: azure;
 }
@@ -39,7 +46,7 @@
 
 
 .login-btn{
-  background-color: #f0f0f0;
+  background-color: #e5dddd;
   border: none;
   color: #3f3c3c;
   padding: 15px 32px;
@@ -52,6 +59,6 @@
 
 .navBar .login-btn:hover{
     color: azure;
-    background-color: #3e3a3a;
+    background-color: #407cdb;
     cursor: pointer;
 }

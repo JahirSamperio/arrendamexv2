@@ -15,26 +15,30 @@ const NavBar = () =>{
   }
 
   const handleLoginClick = () =>{
-    navigate('/Login')
+    navigate('/FormsPage')
   }
 
     return(
-      
-      <nav className="navBar">
+          <header className="nose">
+              <nav className="navBar">
         
-          <h1 className="logo">EasyRentals</h1>
-        
-        <ul className="navBar-links">
+        <h1 className="logo">EasyRentals</h1>
+   
+         <ul className="navBar-links">
             <li className="navBar-links_link">
-              <a onClick={handleHomeClick}>Inicio</a>
+               <a onClick={handleHomeClick}>Inicio</a>
             </li>
             <li className="navBar-links_link">
-              <a onClick={handleAboutClick}>Acerca de</a>
+               <a onClick={handleAboutClick}>Acerca de</a>
             </li>
-        </ul>
-        <button className="login-btn" onClick={handleLoginClick}>Iniciar sesión</button>
+         </ul>
+         <button className="login-btn" onClick={handleLoginClick}>Iniciar sesión</button> 
       </nav>
-    
+          </header>
+          
+       
+      
+ 
     )
 }
 
