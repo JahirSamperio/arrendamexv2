@@ -3,7 +3,10 @@ import { Register } from "./Register";
 import './formsPage.css';
 import './login.css'
 import { useState } from "react";
-import imagen1 from '../../public/img/imagen1.png'
+
+
+
+
 const FormsPage = () =>{
 
 

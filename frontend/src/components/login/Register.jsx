@@ -85,11 +85,6 @@ export function Register  () {
 
 
             </div>
-
-            <input type="button" name="log" id="log" className="" />
-
-        
-        
         
         </>
     )
