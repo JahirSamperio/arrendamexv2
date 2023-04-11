@@ -1,14 +1,12 @@
 const {conexion} = require('../../db/config');
 
 //Inicio de sesion
-function logUserModel(data){
-    const {email, password} = data;
+function logUserModel(email, password){
     return new Promise((resolve, reject) => {
         conexion.query(
             `SELECT * FROM usuarios u
             WHERE u.email = "${email}" 
-            AND u.password = "${password}"`, 
-            function (error, result, field) {
+            AND u.password = "${password}"`, function (error, result, field) {
                 if(error)
                     return reject(error);
                 return resolve(result);

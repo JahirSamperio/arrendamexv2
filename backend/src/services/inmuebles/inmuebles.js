@@ -3,7 +3,8 @@ const {
     getInmuebleByNameModel,
     searchInmuebleByRentaModel,
     newInmuebleModel,
-    searchInmuebleByTypeModel
+    searchInmuebleByTypeModel,
+    getAllInmueblesModel
 } = require('../../models/inmuebles/inmuebles');
 
 //cloudinary
@@ -27,6 +28,15 @@ const newInmuebleService = async (data) => {
 const getInmuebleByIdService = async (id_usuario) => {
     try{
         let response = await getInmuebleByIdModel(id_usuario);        
+        return response;
+    } catch(error){
+        return error;
+    } 
+}
+
+const getAllInmuebleService = async () => {
+    try{
+        let response = await getAllInmueblesModel();        
         return response;
     } catch(error){
         return error;
@@ -65,5 +75,6 @@ module.exports = {
     getInmuebleByNameService,
     searchInmuebleByRentaService,
     newInmuebleService,
-    searchInmuebleByTypeService
+    searchInmuebleByTypeService,
+    getAllInmuebleService
 }
