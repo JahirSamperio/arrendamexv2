@@ -2,6 +2,8 @@ const {
     newArrendadorServices
 } = require('../../services/arrendadores/arrendadores');
 
+//Datos para agregar un arrendador
+
 const newArrendadorController = async (req, res) => {
     try {
         const {email_paypal, num_contacto, id_usuario} = req.body;

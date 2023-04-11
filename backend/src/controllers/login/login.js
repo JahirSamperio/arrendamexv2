@@ -11,8 +11,7 @@ const logUserControllers = async (req = request, res = response) => {
         
         if(response.length === 0){
             return res.status(404).json({
-                msg: "User not found",
-                data
+                msg: "User not found"
             })
         }
         return res.status(200).json({

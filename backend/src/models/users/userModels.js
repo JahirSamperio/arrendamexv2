@@ -18,14 +18,41 @@ function getInformationUserModel(data) {
     })
 }
 
-//Registro de nuevo usuario
-function newUserModels(data){
-    const {nombre, apellidos, email, password} = data;
-    
+function getInformationUserModelByName(nombre) {
     return new Promise((resolve, reject) => {
         conexion.query(
-            `INSERT INTO usuarios (nombre, apellidos, email, password)
-            VALUES ('${nombre}', '${apellidos}', '${email}', '${password}')`,
+            `SELECT id 
+            FROM usuarios 
+            WHERE usuarios.nombre = '${nombre}'`,
+            function (error, result, field) {
+                if (error) 
+                    return reject(error);
+                return resolve(result);
+            })
+    })
+}
+
+//Registro de nuevo usuario
+function newUserModels(data){
+    const {nombre, apellidos, email, password, telefono} = data;
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `INSERT INTO usuarios (nombre, apellidos, email, password, telefono)
+            VALUES ('${nombre}', '${apellidos}', '${email}', '${password}', '${telefono}')`,
+            function(error, result, field){
+                if(error) 
+                    return reject(error);
+                return resolve(result);
+            })
+    })
+}
+
+//Eliminar usuario 
+function deleteUserModels(id){
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `DELETE FROM usuarios 
+            WHERE id = '${id}'`,
             function(error, result, field){
                 if(error) 
                     return reject(error);
@@ -75,5 +102,7 @@ function userInmuebleInformation(id, data){
 module.exports = {
     getInformationUserModel,
     newUserModels,
-    editUserModels
+    editUserModels,
+    getInformationUserModelByName,
+    deleteUserModels
 }

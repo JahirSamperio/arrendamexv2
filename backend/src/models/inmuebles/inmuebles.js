@@ -4,10 +4,27 @@ const {conexion} = require('../../db/config');
 function getInmuebleByIdModel(id_usuario) {
     return new Promise((resolve, reject) => {
         conexion.query(
-            `SELECT * 
+            `SELECT inmuebles.* 
             FROM inmuebles 
-            WHERE inmuebles.id_usuario = ?`,
-            [id_usuario],
+            JOIN arrendador
+            ON inmuebles.id_arrendador = arrendador.id
+            JOIN usuarios
+            ON arrendador.id_usuario = usuarios.id
+            WHERE usuarios.id = '${id_usuario}'`,
+            function (error, result, field) {
+                if (error) 
+                    return reject(error);
+                return resolve(result);
+            })
+            
+    })
+}
+
+//Selecciona todos los inmuebles 
+function getAllInmueblesModel() {
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `SELECT * FROM inmuebles`,
             function (error, result, field) {
                 if (error) 
                     return reject(error);
@@ -47,9 +64,10 @@ function searchInmuebleByRentaModel(renta_venta) {
             })
     })
 }
+
 //Inserta nuevo inmueble
 function newInmuebleModel(data) {
-    const {nombre, descripcion, tipoInmueble, id_usuario, renta_venta, precio, precio_por_mes, pathImage} = data;
+    const {nombre, descripcion, tipoInmueble, id_arrendador, renta_venta, precio, precio_por_mes, pathImage} = data;
     return new Promise((resolve, reject) => {
         conexion.query(
             `INSERT INTO inmuebles(nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage)
@@ -61,6 +79,7 @@ function newInmuebleModel(data) {
             })
     })
 }
+
 //Selecciona inmueble por el tipo que es
 function searchInmuebleByTypeModel(tipoInmueble) {
     return new Promise((resolve, reject) => {
@@ -83,5 +102,6 @@ module.exports = {
     getInmuebleByNameModel,
     searchInmuebleByRentaModel,
     newInmuebleModel,
-    searchInmuebleByTypeModel
+    searchInmuebleByTypeModel,
+    getAllInmueblesModel
 }

@@ -1,7 +1,9 @@
 const {
     getInformationUserModel,
     newUserModels,
-    editUserModels
+    editUserModels,
+    getInformationUserModelByName,
+    deleteUserModels
 } = require('../../models/users/userModels');
 
 const getInformationUserServices = async (data) => {
@@ -14,10 +16,30 @@ const getInformationUserServices = async (data) => {
     }
 }
 
+const getInformationUserServicesByName = async (nombre) => {
+
+    try{
+        let response = await getInformationUserModelByName(nombre);        
+        return response;
+    } catch(error){
+        return error;
+    }
+}
+
 const newUserServices = async (data) => {
     
     try{
         let response = await newUserModels(data);        
+        return response;
+    } catch(error){
+        return error;
+    }
+}
+
+const deleteUserServices = async (id) => {
+    
+    try{
+        let response = await deleteUserModels(id);        
         return response;
     } catch(error){
         return error;
@@ -37,5 +59,7 @@ const editUserServices = async (id, data) => {
 module.exports = {
     getInformationUserServices,
     newUserServices,
-    editUserServices
+    editUserServices,
+    getInformationUserServicesByName,
+    deleteUserServices
 };
