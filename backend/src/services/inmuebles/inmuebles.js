@@ -3,12 +3,40 @@ const {
     getInmuebleByNameModel,
     searchInmuebleByRentaModel,
     newInmuebleModel,
-    searchInmuebleByTypeModel
+    searchInmuebleByTypeModel,
+    getAllInmueblesModel
 } = require('../../models/inmuebles/inmuebles');
+
+//cloudinary
+const cloudinary = require("cloudinary").v2;
+cloudinary.config(process.env.CLOUDINARY_URL);
+
+const newInmuebleService = async (data) => {
+    const {fileImage} = data.files;
+    try{
+        const { secure_url } = await cloudinary.uploader.upload(
+            fileImage.tempFilePath
+        );
+        data.body.pathImage = secure_url;
+        let response = await newInmuebleModel(data.body);        
+        return response;
+    } catch(error){
+        return error;
+    } 
+}
 
 const getInmuebleByIdService = async (id_usuario) => {
     try{
         let response = await getInmuebleByIdModel(id_usuario);        
+        return response;
+    } catch(error){
+        return error;
+    } 
+}
+
+const getAllInmuebleService = async () => {
+    try{
+        let response = await getAllInmueblesModel();        
         return response;
     } catch(error){
         return error;
@@ -32,14 +60,6 @@ const searchInmuebleByRentaService = async (renta_venta) => {
     } 
 }
 
-const newInmuebleService = async (data) => {
-    try{
-        let response = await newInmuebleModel(data);        
-        return response;
-    } catch(error){
-        return error;
-    } 
-}
 
 const searchInmuebleByTypeService = async (tipoInmueble) => {
     try{
@@ -55,5 +75,6 @@ module.exports = {
     getInmuebleByNameService,
     searchInmuebleByRentaService,
     newInmuebleService,
-    searchInmuebleByTypeService
+    searchInmuebleByTypeService,
+    getAllInmuebleService
 }

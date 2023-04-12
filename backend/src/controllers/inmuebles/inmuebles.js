@@ -4,13 +4,29 @@ const {
     getInmuebleByNameService,
     searchInmuebleByRentaService,
     newInmuebleService,
-    searchInmuebleByTypeService
+    searchInmuebleByTypeService,
+    getAllInmuebleService
 } = require('../../services/inmuebles/inmuebles');
 
 const getInmuebleByIdController = async (req, res) => {
     const { id_usuario } = req.query;
     try {
         let response = await getInmuebleByIdService(id_usuario);
+        
+        return res.status(200).json({
+            response
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            msg: 'Information couldnt get'
+        })
+    }
+}
+
+const getAllInmuebleController = async (req, res) => {
+    try {
+        let response = await getAllInmuebleService();
         
         return res.status(200).json({
             response
@@ -39,10 +55,10 @@ const getInmuebleByNameController = async (req, res) => {
     }
 }
 
-const newInmuebleController = async (req, res) => {
+const newInmuebleController = async (req = request, res) => {
     const { nombre, descripcion, tipoInmueble, renta_venta, precio} = req.body;
     try {
-        let response = await newInmuebleService(req.body);
+        let response = await newInmuebleService(req);
         
         return res.status(200).json({
             response
@@ -90,5 +106,6 @@ module.exports = {
     getInmuebleByNameController,
     searchInmuebleByRentaController,
     newInmuebleController,
-    searchInmuebleByTypeController
+    searchInmuebleByTypeController,
+    getAllInmuebleController
 }

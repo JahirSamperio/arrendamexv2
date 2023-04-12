@@ -2,9 +2,9 @@ const {
     logUserModel
 } = require('../../models/login/login');
 
-const logUserServices = async (data) => {
+const logUserServices = async (email, password) => {
     try{
-        let response = await logUserModel(data);        
+        let response = await logUserModel(email, password);        
         return response;
     } catch(error){
         return error;
