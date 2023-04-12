@@ -3,6 +3,7 @@ import { Register } from "./Register";
 import './formsPage.css';
 import './login.css'
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 
 
 
@@ -19,20 +20,35 @@ const FormsPage = () =>{
     const handleRegisterForm = () =>{
         setFormType(2);
     }
+
+    
+    const navigate = useNavigate();
+
+    const handleHomeClick = () =>{
+      navigate('/Home');
+    }
+  
+    const handleAboutClick = () =>{
+      navigate('/About');
+    }
+  
+    const handleLoginClick = () =>{
+      navigate('/FormsPage')
+    }
     
     return(
         
             <div className="forms_page">
                 <div className="logo_section">
-                    <p>hola</p>
+                    <p className="eslogan">Tus rentas, pero más simples.</p>
                 </div>
 
                 <div className="form_section">
                     <div className="nav-">                    
 
                         <ul className="nav-links">
-                            <li className="nav-link">Inicio</li>
-                            <li className="nav-link">Acerca de</li>
+                            <li className="nav-link" onClick={handleHomeClick}>Inicio</li>
+                            <li className="nav-link" onClick={handleAboutClick}>Acerca de</li>
                         </ul>
 
                         <h2 className="k">&#9776;</h2>

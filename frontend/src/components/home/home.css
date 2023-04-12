@@ -2,8 +2,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
 }
 
 body{
-    background-color: #b1b1b1;
+    background-color: #454444;
+}
+
+
+.item_container{
+    background-color: #454444;
+    width: 85em;
+    height: fit-content;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 4em
+}
+
+.card_row{
+    display: flex;
+    justify-content: space-around;
+    align-content: space-between;
+    padding-top: 1em;
 }

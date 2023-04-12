@@ -12,11 +12,12 @@
 
 .navBar{
     width: auto;
-    background-color: #393c3f;
+    background-color: #ad7fbe;
     display: flex;
     justify-content: space-between;
     height: 40px;   
     border-radius: 18px;
+    margin-top: 3.8em;
 }
 
 .logo{
@@ -39,9 +40,8 @@
 .navBar-links_link:hover{
     cursor: pointer;
     transform: scale(1.1);
-    transition: transform 0.3s ease-out 1000ms;
-  
-
+    transition: transform 0.3s;
+    font-weight: 700;
 }
 
 
@@ -49,7 +49,7 @@
   background-color: #e5dddd;
   border: none;
   color: #3f3c3c;
-  padding: 15px 32px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -61,4 +61,6 @@
     color: azure;
     background-color: #407cdb;
     cursor: pointer;
+    transform: scale(1.1);
+    transition: transform .3s;
 }
