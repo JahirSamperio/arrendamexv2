@@ -1,12 +1,26 @@
-import  NavBar  from "../micro/NavBar";
+import  NavBar  from "../atoms/navBar/NavBar";
+import ItemRow from "../atoms/itemRow/ItemRow";
 
+
+import './home.css'
 
 const Home = () =>{
     return(
         <>
             
             <NavBar/>
-            <h2>Home</h2>
+            
+            <div className="item_container">
+                <ItemRow/>
+                <ItemRow/>
+                <ItemRow/>
+                <ItemRow/>
+
+            </div>
+
+
+            
+            
             
         
         </>

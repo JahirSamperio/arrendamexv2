@@ -4,16 +4,24 @@
 
 }
 
+.nose{
+
+    width: 80rem;
+    margin: auto;
+}
+
 .navBar{
-    background-color: #3f6a9e;
+    width: auto;
+    background-color: #ad7fbe;
     display: flex;
     justify-content: space-between;
     height: 40px;   
     border-radius: 18px;
+    margin-top: 3.8em;
 }
 
 .logo{
-
+    margin-left: 30px;
     padding: 5px;
     color: azure;
 }
@@ -32,17 +40,16 @@
 .navBar-links_link:hover{
     cursor: pointer;
     transform: scale(1.1);
-    transition: transform 0.3s ease-out 1000ms;
-  
-
+    transition: transform 0.3s;
+    font-weight: 700;
 }
 
 
 .login-btn{
-  background-color: #f0f0f0;
+  background-color: #e5dddd;
   border: none;
   color: #3f3c3c;
-  padding: 15px 32px;
+  padding: 15px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -52,6 +59,8 @@
 
 .navBar .login-btn:hover{
     color: azure;
-    background-color: #3e3a3a;
+    background-color: #407cdb;
     cursor: pointer;
+    transform: scale(1.1);
+    transition: transform .3s;
 }
