@@ -52,7 +52,7 @@ export function Register  () {
         <>
         
 
-            <div className="form" method="submit" onSubmit={(e)=>{
+            <form className="formv2" method="submit" onSubmit={(e)=>{
                 e.preventDefault()
                 handleRegistrernUser(e)
             }}>
@@ -93,7 +93,7 @@ export function Register  () {
                 </div>
 
 
-            </div>
+            </form>
         
         </>
     )

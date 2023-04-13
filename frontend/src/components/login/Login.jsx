@@ -28,7 +28,7 @@ export const Login = () =>{
 
         <>  
             
-            <div className="form">
+            <form className="formv2">
                 <h2 className="form-title">Inicio de sesión</h2>
                 <p className="form-p">¿Aún no tiene una cuenta?<span className="p-span"> Click en el enlace de arriba</span></p>
                 <div className="form-container">
@@ -52,7 +52,7 @@ export const Login = () =>{
                 </div>
 
 
-            </div>
+            </form>
         </>
     )
 }
