@@ -14,6 +14,6 @@ export const loginUser = (data) => async (dispatch) => {
         console.log(response);
         dispatch(fetchNewUserSuccess(response.data.response));
     } catch (error) {
-        dispatch(fetchNewFailure("Error al ingresar, el ususario no existe, por favor intente nuevamente"));
+        dispatch(fetchNewFailure("Error, información no encontrada.Intente de nuevo"));
     }
 }

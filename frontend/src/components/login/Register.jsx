@@ -37,7 +37,16 @@ export function Register  () {
         
     }
 
-
+    if(sucess) {
+        
+        const done = () =>{
+          alert('Usuario creado correctamente')
+          navigate('/FormsPage');
+        }
+        done();
+            
+            
+    }
 
     return(
         <>
