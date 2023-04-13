@@ -24,5 +24,8 @@
     "request": "^2.88.2",
     "sequelize": "^6.28.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
