@@ -20,7 +20,7 @@ export function Register  () {
 
 
 
-    const handleRegistrernUser = (data)=>{
+    const handleRegisternUser = (data)=>{
 
        const formData = {
             nombre: data.target.nombreUsuario.value,
@@ -40,7 +40,7 @@ export function Register  () {
     if(sucess) {
         
         const done = () =>{
-          alert('Usuario creado correctamente')
+          alert('Usuario creado correctamente');
           navigate('/FormsPage');
         }
         done();
@@ -54,7 +54,7 @@ export function Register  () {
 
             <form className="formv2" method="submit" onSubmit={(e)=>{
                 e.preventDefault()
-                handleRegistrernUser(e)
+                handleRegisternUser(e)
             }}>
                 <div className="formulario">
                     <h2 className="form-title">Registro</h2>

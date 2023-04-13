@@ -12,7 +12,7 @@ export const Login = () =>{
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const {suces, error} = useSelector((state) => state.users.new);
+    const {sucess, error} = useSelector((state) => state.users.new);
 
      const handleUserLogin = (data) =>{
          const loginData = {
@@ -28,7 +28,10 @@ export const Login = () =>{
 
         <>  
             
-            <form className="formv2">
+            <form className="formv2" method="submit" onSubmit={
+                (e) =>{
+                    e.preventDefault();
+                    handleUserLogin(e);}}>
                 <h2 className="form-title">Inicio de sesión</h2>
                 <p className="form-p">¿Aún no tiene una cuenta?<span className="p-span"> Click en el enlace de arriba</span></p>
                 <div className="form-container">

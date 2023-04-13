@@ -10,7 +10,7 @@ export const loginUser = (data) => async (dispatch) => {
 
     try {
         dispatch(fetchNewUser());
-        const response = await axios.post('http://localhost:8080/log/login', data);
+        const response = await axios.post('http://localhost:3000/log/login', data);
         console.log(response);
         dispatch(fetchNewUserSuccess(response.data.response));
     } catch (error) {
