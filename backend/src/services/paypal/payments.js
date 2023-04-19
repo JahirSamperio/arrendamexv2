@@ -11,6 +11,15 @@ const getPaymentInfoServices = async (id_inmueble) => {
     }
 }
 
+const newPaymentInfoServices = async (data) => {
+    try{
+        let response = await getPaymentInfo(data);        
+        return response;
+    } catch(error){
+        return error;
+    }
+}
+
 module.exports = {
-    getPaymentInfoServices
+    newPaymentInfoServices
 }
