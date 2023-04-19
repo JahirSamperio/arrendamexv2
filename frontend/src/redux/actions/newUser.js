@@ -12,7 +12,7 @@ export const newUser = (dataForm) => async (dispatch) => {
 
         dispatch(fetchNewUser());
         
-        const response = await axios.post('http://localhost:8080/users/newUser', dataForm);
+        const response = await axios.post('http://localhost:3000/users/newUser', dataForm);
         dispatch(fetchNewUserSuccess(response));
 
     } catch (error) {
