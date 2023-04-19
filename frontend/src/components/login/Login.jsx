@@ -22,9 +22,6 @@ export const Login = () =>{
         dispatch(loginUser(loginData));
     }
 
-    useEffect( () =>{
-            console.log(error);
-    }, [error])
     return (
 
         <>  
