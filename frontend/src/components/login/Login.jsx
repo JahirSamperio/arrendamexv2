@@ -22,8 +22,6 @@ export const Login = () =>{
         dispatch(loginUser(loginData));
     }
 
-
-
     return (
 
         <>  
