@@ -68,7 +68,7 @@ function editUserModels(id, data){
     return new Promise((resolve, reject) => {
         conexion.query(
             `UPDATE usuarios 
-            SET nombre = '${nombre}', apellidos = '${apellidos}', password = '${password}, email = '${email}', telefono = '${telefono}'
+            SET nombre = '${nombre}', apellidos = '${apellidos}', password = '${password}', email = '${email}', telefono = '${telefono}'
             WHERE usuarios.id = '${id}'`,
             function(error, result, field){
                 if(error) 

@@ -9,35 +9,57 @@ const PAYPAL_API = 'https://api-m.sandbox.paypal.com';
 const auth = { user: CLIENT, pass: SECRET }
 
 
-function getPaymentInfo(id_inmueble) {
+function getPaymentInfo(id_inmueble, id_arrendatario) {
     return new Promise((resolve, reject) => {
         conexion.query(
-            `SELECT inmuebles.precio, arrendador.email_paypal, usuarios.nombre, usuarios.apellidos 
-            FROM ((inmuebles 
-                INNER JOIN arrendador ON inmuebles.id_arrendador = arrendador.id)
-                INNER JOIN usuarios ON arrendador.id_usuario = usuarios.id)
-                WHERE inmuebles.id = '${id_inmueble}'`,
+            `SELECT contratos.total, contratos.id, arrendador.email_paypal
+                FROM contratos
+                JOIN inmuebles
+                ON contratos.id_inmueble = inmuebles.id 
+                JOIN arrendador
+                ON inmuebles.id_arrendador = arrendador.id
+                WHERE (inmuebles.id = '${id_inmueble}')
+                AND (contratos.id_arrendatario = '${id_arrendatario}')`,
                 function (error, result, field) {
                     if (error) 
                     return reject(error);
-                    const { precio, nombre, descripcion, email_paypal, tipoInmueble } = result[0];
-                    resolve({ precio, nombre, descripcion, email_paypal, tipoInmueble });
+                    const { total, id, email_paypal } = result[0];
+                    resolve({ total, id, email_paypal });
                 })
             })
-        }
+}
 
-        
+function getIdUsuario(id_usuario) {
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `SELECT arrendatarios.id
+                FROM arrendatarios
+                JOIN usuarios
+                ON arrendatarios.id_usuario = usuarios.id 
+                WHERE usuarios.id = '${id_usuario}'`,
+                function (error, result, field) {
+                    if (error) 
+                        return reject(error);
+                    if (result.length === 0) 
+                        return reject(new Error('No se encontraron resultados'));
+                    const { id } = result[0]; // Destructura la propiedad 'id' del primer objeto de 'result'
+                    resolve({ id_arrendatario: id });
+                })
+            })
+}
+
 //***************PAGO ESTANDAR********************** */
         
 const createPayment = async (req, res) => {
-    const { id_inmueble } = req.query;
-    const { precio, email_paypal, } = await getPaymentInfo(id_inmueble);
+    const { id_inmueble, id_usuario } = req.query;          //**AQUI VA IR LO DE ENVIAR EL ID DEL ARRENDADOR PARA QUE SEPA QUE CONTRATO ES EL SUYO */
+    const { id_arrendatario } = await getIdUsuario(id_usuario);
+    const { total, id, email_paypal,  } = await getPaymentInfo(id_inmueble, id_arrendatario);
     const body = {
         intent: 'CAPTURE',
         purchase_units: [{
             amount: {
                 currency_code: 'MXN', //https://developer.paypal.com/docs/api/reference/currency-codes/
-                value: precio
+                value: total
             },
             payee: {
                 email: email_paypal
@@ -47,7 +69,7 @@ const createPayment = async (req, res) => {
             brand_name: `Easy-Rentals.com`,
             landing_page: 'NO_PREFERENCE', // Default, para mas informacion https://developer.paypal.com/docs/api/orders/v2/#definition-order_application_context
             user_action: 'PAY_NOW', // Accion para que en paypal muestre el monto del pago
-            return_url: `http://localhost:3000/execute-payment`, // Url despues de realizar el pago
+            return_url: `http://localhost:3000/execute-payment?id_contrato=${id}`, // Url despues de realizar el pago
             cancel_url: `http://localhost:3000/cancel-payment` // Url despues de realizar el pago
         }
     }
@@ -74,100 +96,40 @@ const createPayment = async (req, res) => {
 
 //Funcion para capturar el dinero
 const executePayment = async (req, res) => {
-    const token = req.query.token; 
-
+    const token = req.query.token;
+    const { id_contrato } = req.query; 
+    
     request.post(`${PAYPAL_API}/v2/checkout/orders/${token}/capture`, {
         auth,
         body: {},
         json: true
     }, (err, response) => {
-        const payerName = `${response.body.data.payer.name.given_name} ${response.body.data.payer.name.surname}`;
-        // res.json({ data: response.body })
-        res.json({ payerName })
-        // const id_usuario = await getIdUsuarioNombre();
+        const id_paypal = response.body.id;
+        const status_paypal = response.body.status;
+        const email_payer = response.body.payer.email_address;
+        const total_paypal = response.body.purchase_units[0].payments.captures[0].amount.value;
+        const fechaHora = response.body.purchase_units[0].payments.captures[0].create_time;
+        const fecha = fechaHora.substring(0, 10);
+        try{
+            return new Promise((resolve, reject) => {
+                conexion.query(
+                    `INSERT INTO pagos_paypal (id_payment, status, total, fecha, id_contrato)
+                    VALUES ('${id_paypal}', '${status_paypal}', '${total_paypal}', '${fecha}',
+                    '${id_contrato}')`,
+                    function (error, result, field) {
+                        if (error) 
+                            return reject(error);
+                        return resolve(result);
+                    }) 
+                    res.json({ data: response.body })
+            })
+        } catch (error){
+            return res.status(500).json({
+                msg: 'Error en el servidor'
+            })
+        } 
     })
 }
-
-
-
-
-
-
-//***************SUSCRIPCIONES********************** */
-
-// const createProduct = async (req, res) => {
-//     const { id_inmueble } = req.query;
-//     const { precio, nombre, descripcion, email_paypal, tipoInmueble } = await getPaymentInfo(id_inmueble);
-//     const product = {
-//         name: 'Alquiler de inmueble' ,
-//         description: descripcion,
-//         type: 'SERVICE',
-//         category: 'SOFTWARE',
-//         image_url: 'https://avatars.githubusercontent.com/u/15802366?s=460&u=ac6cc646599f2ed6c4699a74b15192a29177f85a&v=4'
-
-//     }
-
-//     //https://developer.paypal.com/docs/api/catalog-products/v1/#products_create
-//     request.post(`${PAYPAL_API}/v1/catalogs/products`, {
-//         auth,
-//         body: product,
-//         json: true
-//     }, (err, response) => {
-//         res.json({ data: response.body })
-//     })
-// }
-
-// const createPlan = async (req, res) => {
-//     const { id_inmueble } = req.query;
-//     const { precio, nombre, descripcion, email_paypal, tipoInmueble } = await getPaymentInfo(id_inmueble);
-
-//     const { body } = req
-//     //product_id
-
-//     const plan = {
-//         name: 'Cuota mensual de arrendamiento',
-//         product_id: body.product_id,
-//         status: "ACTIVE",
-//         billing_cycles: [
-//             {
-//                 frequency: {
-//                     interval_unit: "MONTH",
-//                     interval_count: 1
-//                 },
-//                 tenure_type: "REGULAR",
-//                 sequence: 1,
-//                 total_cycles: 12,
-//                 pricing_scheme: {
-//                     fixed_price: {
-//                         value: precio, // PRECIO MENSUAL QUE COBRAS 3.30USD
-//                         currency_code: "MXN"
-//                     }
-//                 }
-//             }],
-//         payment_preferences: {
-//             auto_bill_outstanding: true,
-//             setup_fee: {
-//                 value: precio,
-//                 currency_code: "MXN"
-//             },
-//             setup_fee_failure_action: "CONTINUE",
-//             payment_failure_threshold: 3
-//         },
-//         taxes: {
-//             percentage: "0", // 10USD + 10% = 11 USD
-//             inclusive: false
-//         }
-//     }
-
-//     request.post(`${PAYPAL_API}/v1/billing/plans`, {
-//         auth,
-//         body: plan,
-//         json: true
-//     }, (err, response) => {
-//         res.json({ data: response.body })
-//     })
-// }
-
 
 module.exports = {
     createPayment,
