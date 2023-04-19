@@ -1,0 +1,129 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.sidenav{
+    
+    background-color: #fff;
+    width: 250px;
+    border-radius: 10px;
+    margin-left: 1em;
+    height: 660px;
+    
+
+
+}
+
+.salto{
+   background-image:  linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+   padding: 0.02em 0em;
+   margin: 0em 1em;
+}
+
+.sidenav_header{
+    display: flex;
+}
+
+
+.sidenav-nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboar-link{
+    display: flex;
+    text-decoration: none;
+    margin: 0 8px;
+    color: rgb(77, 77, 77);
+    
+
+}
+
+.nav-item_icon{
+    margin: 0 7px 0 0;
+    padding: 10px;
+    color: rgb(40, 35, 35);
+    height: 35px;
+    width: 35px;
+    font-size: 1.2em;
+}
+
+.nav-item_text{
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-item{
+    padding: 11px 32px;
+    list-style: none;
+}
+
+.nav-header-icon{
+    height: 56px;
+    width: 40px;
+    font-size: 2.2em;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.nav-header-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 0 8px;
+    color: rgb(27, 27, 27);
+}
+
+.nav-header_text{
+    padding: 10px;
+    font-size: 1em;
+    
+}
+
+.sidenav_header{
+    height: 4.8em ;
+}
+
+.exit_link{
+    padding: 11px 16px;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    margin: 0 8px;
+    color: rgb(77, 77, 77);
+    font-size: 1.2em;
+}
+
+.nav-exit_icon{
+    height: 40px;
+    width: 40px;
+    font-size: 1.2em;
+    padding: 10px;
+    padding-left: 0;
+    margin-right: 5px;
+}
+
+
+.icono0{
+    color:  #7a4fca;
+}
+
+.icono1{
+    color: rgb(243, 43, 43);
+}
+
+.icono2{
+    color: #fb8200;
+}
+
+.icono3{
+    color: #37c912;
+}
+
+.icono4{
+    color: rgb(45, 187, 187);
+}

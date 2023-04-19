@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.container{
+    background-image: linear-gradient(to bottom,rgb(182, 69, 205) 35%, #ffffff 25%);
+}
+
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 72, 72, 0.06); /* Establece un color semitransparente negro */
+  }
+
+  .content{
+    height: 100vh;    
+    display: grid;
+    grid-template-columns: 20% 80%;
+    z-index: 999;
+    position: relative;
+  }
+
+.col-1{
+  display: block;
+  align-self: center;
+
+}
+.col-2{
+  width: auto;
+  position: relative;
+}
+.row-container{
+  width: auto;
+  height: auto;
+}
+.dashboard-tables{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4.8em;
+  
+}
+
+.lastpayments{
+  flex: 0 0 auto;
+  width: 58.333333%;
+}
+
+.pendings>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-top: var(--bs-gutter-y);
+}

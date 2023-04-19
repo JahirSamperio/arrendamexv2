@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import "./NavBar.css"
-
+import{FaUserCircle} from 'react-icons/fa'
 
 
 
@@ -17,7 +17,7 @@ const NavBar = () =>{
   }
 
   const handleLoginClick = () =>{
-    navigate('/FormsPage')
+    navigate('/')
   }
 
     return(
@@ -34,7 +34,8 @@ const NavBar = () =>{
                <a onClick={handleAboutClick}>Acerca de</a>
             </li>
          </ul>
-         <button className="login-btn" onClick={handleLoginClick}>Iniciar sesión</button> 
+         <button className="login-btn" onClick={handleLoginClick}>Iniciar sesión</button>
+          
       </nav>
           </header>
           

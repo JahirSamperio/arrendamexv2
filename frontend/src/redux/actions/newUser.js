@@ -12,10 +12,11 @@ export const newUser = (dataForm) => async (dispatch) => {
 
         dispatch(fetchNewUser());
         
-        const response = await axios.post('http://localhost:3000/users/newUser', dataForm);
-        dispatch(fetchNewUserSuccess(response));
+        const {data} = await axios.post('http://localhost:3000/users/newUser', dataForm);
+        console.log(data.response);
+        dispatch(fetchNewUserSuccess(data.response));
 
     } catch (error) {
-        dispatch(fetchNewFailure(error));
+        dispatch(fetchNewFailure("Error al crear el nuevo ususario"));
     }
 }
