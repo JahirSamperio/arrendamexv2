@@ -3,14 +3,17 @@
     }
 
 .search_container{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    display: flex;
     height: 2.4em;
+    width: 10em;
+    padding-left: 5em;
+    padding-right: 5em;
+    justify-content:space-between ;
 }
 
 .search_bar{
     padding: 10px;
-    position: absolute;
+    position: relative;
 
 }
 

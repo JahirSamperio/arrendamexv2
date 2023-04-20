@@ -11,7 +11,10 @@ const Home = () =>{
         <>
             
             <NavBar/>
-            <Search/>
+            <div className="search-cont">
+                <Search/>
+            </div>
+            
             <div className="item_container">
                 <ItemRow/>
                 <ItemRow/>
