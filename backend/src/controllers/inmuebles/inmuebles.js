@@ -5,7 +5,10 @@ const {
     searchInmuebleByRentaService,
     newInmuebleService,
     searchInmuebleByTypeService,
-    getAllInmuebleService
+    getAllInmuebleService,
+    getArrendatariosService,
+    getInmuebleByArrendadorService,
+    editInmuebleService
 } = require('../../services/inmuebles/inmuebles');
 
 const getInmuebleByIdController = async (req, res) => {
@@ -85,10 +88,63 @@ const searchInmuebleByRentaController = async (req, res) => {
         })
     }
 }
+
+const editInmuebleController = async (req, res) => {
+    const { id_inmueble } = req.query;
+    const { nombre, descripcion, tipoInmueble, renta_venta, precio, id_arrendador}  = req.body;
+    try {
+        let response = await editInmuebleService(req, id_inmueble);
+        
+        return res.status(200).json({
+            response
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            msg: 'Information could not get'
+        })
+    }
+}
 const searchInmuebleByTypeController = async (req, res) => {
     const { tipoInmueble } = req.query;
     try {
         let response = await searchInmuebleByTypeService(tipoInmueble);
+        
+        return res.status(200).json({
+            response
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            msg: 'Information could not get'
+        })
+    }
+}
+
+
+//********** SECCION DE MIS ARRENDAMIENTOS EN LA DASHBOARD **************/
+
+//Arrendados
+const getArrendatariosController = async (req, res) => {
+    const { id_usuario } = req.query;
+    try {
+        let response = await getArrendatariosService(id_usuario);
+        
+        return res.status(200).json({
+            response
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            msg: 'Information could not get'
+        })
+    }
+}
+//Inmuebles
+const getInmuebleByArrendadorController = async (req, res) => {
+    const { id_usuario } = req.query;
+    try {
+        let response = await getInmuebleByArrendadorService(id_usuario);
         
         return res.status(200).json({
             response
@@ -107,5 +163,8 @@ module.exports = {
     searchInmuebleByRentaController,
     newInmuebleController,
     searchInmuebleByTypeController,
-    getAllInmuebleController
+    getAllInmuebleController,
+    getArrendatariosController,
+    getInmuebleByArrendadorController,
+    editInmuebleController
 }

@@ -1,5 +1,9 @@
 const {
-    getUltimosPagosServices
+    getUltimosPagosServices,
+    getPendientesServices,
+    getTotalPaymentsTodayService,
+    getTotalPaymentsMonthService,
+    getPendientesLengthService
 } = require('../../services/fechas/fechas');
 
 const getUltimosPagosControllers = async (req, res) => {
@@ -16,6 +20,65 @@ const getUltimosPagosControllers = async (req, res) => {
     }
 }
 
+const getPendientesControllers = async (req, res) => {
+    try{
+        const { id_usuario } = req.query;
+        let response = await getPendientesServices(id_usuario);
+        return res.status(200).json({
+            response
+        })
+    } catch(err){
+        return res.status(500).json({
+            msg: 'Information not get'
+        })
+    }
+}
+
+const getTotalPaymentsTodayControllers = async (req, res) => {
+    try{
+        const { id_usuario } = req.query;
+        let response = await getTotalPaymentsTodayService(id_usuario);
+        return res.status(200).json({
+            response
+        })
+    } catch(err){
+        return res.status(500).json({
+            msg: 'Information not get'
+        })
+    }
+}
+
+const getTotalPaymentsMonthControllers = async (req, res) => {
+    try{
+        const { id_usuario } = req.query;
+        let response = await getTotalPaymentsMonthService(id_usuario);
+        return res.status(200).json({
+            response
+        })
+    } catch(err){
+        return res.status(500).json({
+            msg: 'Information not get'
+        })
+    }
+}
+const getPendientesLengthControllers = async (req, res) => {
+    try{
+        const { id_usuario } = req.query;
+        let response = await getPendientesLengthService(id_usuario);
+        return res.status(200).json({
+            response
+        })
+    } catch(err){
+        return res.status(500).json({
+            msg: 'Information not get'
+        })
+    }
+}
+
 module.exports = {
-    getUltimosPagosControllers
+    getUltimosPagosControllers,
+    getPendientesControllers,
+    getTotalPaymentsTodayControllers,
+    getTotalPaymentsMonthControllers,
+    getPendientesLengthControllers
 }

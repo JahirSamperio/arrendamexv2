@@ -9,7 +9,7 @@ const PAYPAL_API = 'https://api-m.sandbox.paypal.com';
 const auth = { user: CLIENT, pass: SECRET }
 
 
-function getPaymentInfo(id_inmueble, id_arrendatario) {
+function getPaymentInfo(id_inmueble, id_usuario) {
     return new Promise((resolve, reject) => {
         conexion.query(
             `SELECT contratos.total, contratos.id, arrendador.email_paypal
@@ -19,7 +19,7 @@ function getPaymentInfo(id_inmueble, id_arrendatario) {
                 JOIN arrendador
                 ON inmuebles.id_arrendador = arrendador.id
                 WHERE (inmuebles.id = '${id_inmueble}')
-                AND (contratos.id_arrendatario = '${id_arrendatario}')`,
+                AND (contratos.id_usuario = '${id_usuario}')`,
                 function (error, result, field) {
                     if (error) 
                     return reject(error);
@@ -29,31 +29,12 @@ function getPaymentInfo(id_inmueble, id_arrendatario) {
             })
 }
 
-function getIdUsuario(id_usuario) {
-    return new Promise((resolve, reject) => {
-        conexion.query(
-            `SELECT arrendatarios.id
-                FROM arrendatarios
-                JOIN usuarios
-                ON arrendatarios.id_usuario = usuarios.id 
-                WHERE usuarios.id = '${id_usuario}'`,
-                function (error, result, field) {
-                    if (error) 
-                        return reject(error);
-                    if (result.length === 0) 
-                        return reject(new Error('No se encontraron resultados'));
-                    const { id } = result[0]; // Destructura la propiedad 'id' del primer objeto de 'result'
-                    resolve({ id_arrendatario: id });
-                })
-            })
-}
 
 //***************PAGO ESTANDAR********************** */
         
 const createPayment = async (req, res) => {
     const { id_inmueble, id_usuario } = req.query;          //**AQUI VA IR LO DE ENVIAR EL ID DEL ARRENDADOR PARA QUE SEPA QUE CONTRATO ES EL SUYO */
-    const { id_arrendatario } = await getIdUsuario(id_usuario);
-    const { total, id, email_paypal,  } = await getPaymentInfo(id_inmueble, id_arrendatario);
+    const { total, id, email_paypal,  } = await getPaymentInfo(id_inmueble, id_usuario);
     const body = {
         intent: 'CAPTURE',
         purchase_units: [{
