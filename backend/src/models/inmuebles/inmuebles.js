@@ -79,6 +79,21 @@ function newInmuebleModel(data) {
             })
     })
 }
+//Editar inmueble
+function editInmuebleModel(data, id_inmueble) {
+    const {nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage, id_arrendador} = data;
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `UPDATE inmuebles
+            SET nombre = '${nombre}', descripcion = '${descripcion}', tipoInmueble = '${tipoInmueble}', renta_venta = '${renta_venta}', precio = '${precio}', pathImage = '${pathImage}', id_arrendador = '${id_arrendador}'
+            WHERE inmuebles.id = '${id_inmueble}'`,
+            function (error, result, field) {
+                if (error) 
+                    return reject(error);
+                return resolve(result);
+            })
+    })
+}
 
 //Selecciona inmueble por el tipo que es
 function searchInmuebleByTypeModel(tipoInmueble) {
@@ -95,6 +110,51 @@ function searchInmuebleByTypeModel(tipoInmueble) {
     })
 }
 
+//********** SECCION DE MIS ARRENDAMIENTOS EN LA DASHBOARD **************/
+
+//Arrendados
+function getArrendatariosModel(id_usuario) {
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `SELECT usuarios_arrendatario.nombre AS nombreUsuario, usuarios_arrendatario.apellidos, usuarios_arrendatario.email, inmuebles.nombre, inmuebles.tipoInmueble, contratos.metodo_pago, contratos.total, contratos.fecha_pago 
+            FROM contratos
+            JOIN usuarios 
+            AS usuarios_arrendatario
+            ON contratos.id_usuario = usuarios_arrendatario.id
+            JOIN inmuebles 
+            ON contratos.id_inmueble = inmuebles.id
+            JOIN arrendador
+            ON inmuebles.id_arrendador = arrendador.id
+            JOIN usuarios
+            ON arrendador.id_usuario = usuarios.id
+            WHERE usuarios.id = '${id_usuario}'`,
+            function (error, result, field) {
+                if (error) 
+                    return reject(error);
+                return resolve(result);
+            })
+    })
+}
+
+//Inmuebles informacion principal
+function getInmuebleByArrendadorModel(id_usuario) {
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `SELECT inmuebles.nombre, inmuebles.precio, inmuebles.tipoInmueble, inmuebles.renta_venta
+            FROM inmuebles 
+            JOIN arrendador
+            ON inmuebles.id_arrendador = arrendador.id
+            JOIN usuarios
+            ON arrendador.id_usuario = usuarios.id
+            WHERE usuarios.id = '${id_usuario}'`,
+            function (error, result, field) {
+                if (error) 
+                    return reject(error);
+                return resolve(result);
+            })
+            
+    })
+}
 
 
 module.exports = {
@@ -103,5 +163,8 @@ module.exports = {
     searchInmuebleByRentaModel,
     newInmuebleModel,
     searchInmuebleByTypeModel,
-    getAllInmueblesModel
+    getAllInmueblesModel,
+    getArrendatariosModel,
+    getInmuebleByArrendadorModel,
+    editInmuebleModel
 }

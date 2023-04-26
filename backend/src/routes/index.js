@@ -20,6 +20,8 @@ app.use('/contratos', require('./contratos/contratos'));
 
 app.use('/fechas' , require('./fechas/fechas'));
 
+app.use('/citas' , require('./citas/citas'));
+
 //*******************Paypal******************** */
 
 app.post('/create-payment', createPayment);
