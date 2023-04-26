@@ -16,7 +16,7 @@ export const Search = () => {
         </div> 
         
         <div className="search_filters"> 
-            <select name="tipo" id="inmobiliary_type">
+            <select name="tipo" id="inmobiliary_type" className='holas'>
               <option value="renta">Renta</option>
               <option value="venta">Venta</option>
             </select>

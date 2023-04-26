@@ -1,0 +1,34 @@
+
+.appointment-tables{
+    padding-top: 6em;
+    display: grid;
+    grid-template-columns: 55% 40%;
+    gap: 2em;
+    max-height: 729.2px;
+}
+
+.list-g {
+    --bs-list-group-color: inherit;
+    --bs-list-group-bg: #fff;
+    --bs-list-group-border-color: rgba(0, 0, 0, 0.125);
+    --bs-list-group-border-width: 1px;
+    --bs-list-group-border-radius: 0.5rem;
+    --bs-list-group-item-padding-x: 1rem;
+    --bs-list-group-item-padding-y: 0.5rem;
+    --bs-list-group-action-color: #495057;
+    --bs-list-group-action-hover-color: #495057;
+    --bs-list-group-action-hover-bg: #f8f9fa;
+    --bs-list-group-action-active-color: #67748e;
+    --bs-list-group-action-active-bg: #e9ecef;
+    --bs-list-group-disabled-color: #6c757d;
+    --bs-list-group-disabled-bg: #fff;
+    --bs-list-group-active-color: #fff;
+    --bs-list-group-active-bg: #5e72e4;
+    --bs-list-group-active-border-color: #5e72e4;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: var(--bs-list-group-border-radius);
+}
+

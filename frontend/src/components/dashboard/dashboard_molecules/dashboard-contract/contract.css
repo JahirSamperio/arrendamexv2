@@ -1,0 +1,17 @@
+
+
+.ml{
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 6px;
+}
+
+.ea{
+    background-image: linear-gradient(310deg, #2dce89 0%, #2dcecc 100%);
+    border-radius: 6px ;
+    color: aliceblue;
+}
+
+.ae{
+    font-size: .9em;
+}

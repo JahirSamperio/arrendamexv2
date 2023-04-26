@@ -7,7 +7,7 @@
 .item_card{
     height: 20em;
     width: 14em;
-    background-color: #efc9c9;
+    background-color: #757575;
     border-radius: 6px;
 }
 
@@ -31,10 +31,12 @@
 .item_name{
     padding-top: 12px ;
     text-align: center;
+    color: aliceblue;
 }
 
 .item_information{
     justify-content: space-around;
+   
 }
 
 .item_info{
@@ -43,4 +45,5 @@
     grid-template-columns: repeat(2,1fr);
     margin-left: 0;
     justify-items: center;
+    color: aliceblue;
 }

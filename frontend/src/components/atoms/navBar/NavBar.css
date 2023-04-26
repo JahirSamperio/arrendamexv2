@@ -13,7 +13,7 @@
 
 .navBar{
     width: auto;
-    background-color: #ad7fbe;
+    background-color: #5065de;
     display: flex;
     justify-content: space-between;
     height: 40px;   
@@ -25,6 +25,7 @@
     margin-left: 30px;
     padding: 5px;
     color: azure;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .navBar-links{
@@ -47,9 +48,9 @@
 
 
 .login-btn{
-  background-color: #e5dddd;
+  background-color: #d2c4c4;
   border: none;
-  color: #3f3c3c;
+  color: #393939;
   padding: 15px 30px;
   text-align: center;
   text-decoration: none;
@@ -64,4 +65,8 @@
     cursor: pointer;
     transform: scale(1.1);
     transition: transform .3s;
+}
+
+.ubicacion{
+    color: aliceblue;
 }
