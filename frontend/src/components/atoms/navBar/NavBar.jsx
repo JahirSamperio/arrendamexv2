@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom"
 import "./NavBar.css"
 import{FaUserCircle} from 'react-icons/fa'
+import { useEffect, useState } from "react";
 
 
 
 const NavBar = () =>{
 
   const navigate = useNavigate();
+
+  const [session,setSession] = useState(false)
 
   const handleHomeClick = () =>{
     navigate('/Home');
@@ -19,6 +22,17 @@ const NavBar = () =>{
   const handleLoginClick = () =>{
     navigate('/')
   }
+
+  useEffect (() =>{
+
+     const p  = localStorage.getItem('names')
+    
+     if (p ){
+      setSession(true)
+     }
+
+  },[])
+
 
     return(
           <header className="nose">
@@ -34,7 +48,10 @@ const NavBar = () =>{
                <a onClick={handleAboutClick}>Acerca de</a>
             </li>
          </ul>
-         <button className="login-btn" onClick={handleLoginClick}>Iniciar sesión</button>
+         
+         {session == true ? <button className="login-btn" onClick={handleLoginClick}>Cerrar sesión</button>: 
+         <button className="login-btn" onClick={handleLoginClick}>Iniciar sesion</button>}
+
           
       </nav>
           </header>

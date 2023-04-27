@@ -1,0 +1,61 @@
+
+
+.col-2arrendamientos{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    row-gap: 1.2em;
+}
+
+.addProper{
+    width: fit-content;
+}
+
+
+.row-1{
+    padding-top: 4em ;
+    display: grid;
+    grid-template-columns: 45% 50%;
+    gap: .5em;
+}
+
+.row-2{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 180px;
+    width: 65em;
+    column-gap: 9em;
+
+    
+}
+
+.addPropertyBtn{
+    padding: 4em 2em;
+    
+}
+
+.bbb{
+    text-align: center;
+    padding-top: 10px;
+    height: 3em;
+    width: 18em;
+    background: #1f5db5;
+    border-radius: 10px;
+
+}
+
+.addPropBtn{  
+
+    text-decoration: none;
+    color: rgb(224, 224, 224);
+    font-size: 1.6em;
+}
+
+.th-contract{
+    text-transform: uppercase;
+    color: rgb(84, 81, 81);
+}
+
+.thh{
+    text-transform: uppercase;
+    color: rgb(84, 81, 81);
+}

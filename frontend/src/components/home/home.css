@@ -6,12 +6,12 @@
 }
 
 body{
-    background-color: #454444;
+    background-color: #eeeeee;
 }
 
 
 .item_container{
-    background-color: #454444;
+    background-color: #bcbcbc;
     width: 85em;
     height: fit-content;
     border-radius: 8px;
@@ -26,3 +26,11 @@ body{
     align-content: space-between;
     padding-top: 1em;
 }
+
+.search-cont{
+    padding-top: 3em ;
+    display: flex;
+    width: fit-content;
+    padding-left: 52em;
+}
+

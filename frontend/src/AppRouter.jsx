@@ -8,7 +8,8 @@ import { Arrendamientos } from "./components/dashboard/arrendamientos/Arrendamie
 import { DashboardCitas } from "./components/dashboard/citas/DashboardCitas";
 import { Rentas } from "./components/dashboard/renta/Rentas";
 import { Perfil } from "./components/dashboard/perfil/Perfil";
-
+import { AddProp } from "./components/dashboard/dashboard_molecules/dashboard-properties/AddProp";
+import { AddContract } from "./components/dashboard/dashboard_molecules/dashboard-addContract/AddContract";
 
 function AppRouter() {
  
@@ -27,7 +28,8 @@ function AppRouter() {
       <Route path="/DashboardCitas" element={<DashboardCitas/>}/>
       <Route path="/DashboardRentas" element={<Rentas/>}/>
       <Route path="/DashboardPerfil" element={<Perfil/>}/>
-    
+      <Route path="/AddProperty" element={<AddProp/>}/>
+      <Route path="/AddContract" element={<AddContract/>}/>
     </Routes>
 
 

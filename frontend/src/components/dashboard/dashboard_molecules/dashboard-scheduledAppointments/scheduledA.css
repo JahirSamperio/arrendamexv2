@@ -1,0 +1,35 @@
+.aaa{
+    display: flex;
+    flex-direction: column;
+}
+
+.nombre-agendado{
+    font-size: 0.875rem !important;
+    line-height: 1.5;
+    color: #344767 !important;
+    margin-bottom: 0.25rem !important;
+    font-weight: 600;
+}
+
+.sss{
+    font-size: 0.75rem !important;
+    line-height: 1.25;
+    
+}
+
+.list-g-item_col2{
+    background-image: linear-gradient(310deg, #2dce89, #2dcecc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5;
+    color: #2dce89 !important;
+    display: flex !important;
+    align-items: center !important;
+    padding-top: 0px;
+    text-align: right !important;
+    margin-left: auto !important;
+}
