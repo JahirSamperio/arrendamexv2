@@ -1,0 +1,56 @@
+.ptmm{
+    margin-top: 10em;
+    display: grid;
+    grid-template-columns: 35% 55%;
+
+}
+
+.font11{
+    font-size: 1.8em;
+    margin-top: 10px;
+}
+.card-header-icon{
+ font-size: 1em;
+}
+
+.user-icon{
+    font-size: 3.8em;
+    padding-top: 24px;
+    padding-left: 96px;
+
+}
+
+.user-label{
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
+
+.g-i{
+    line-height: 36px;
+}
+.g-i p {
+    text-align: center;
+}
+.userInformation{
+    
+    height: 22em;
+    width: 16em;
+    background-color: rgb(225, 225, 225);
+    border-radius: 10px;
+}
+
+.rent-info{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 6px;
+    background-color: #bcbcbc;
+    line-height: 28px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+.rent-i-h6{
+    font-size:1.8em;
+}

@@ -1,11 +1,12 @@
 import React from 'react'
 
 import '../dashboard.css'
+import '../perfil/perfil.css'
 
 import { FaRegUserCircle } from 'react-icons/fa';
 
 import { DashboardNav } from '../dashboard_molecules/dashboard_navBar/DashboardNav'
-
+import { PerfilForm } from '../dashboard_molecules/perfil-form/PerfilForm';
 
 
 
@@ -21,28 +22,45 @@ export const Perfil = () => {
 
         <div className='col-2'>
 
-          <div className="ptm">
-            <div className="userInformation card">
-          
-              <form action="" className='edit-information'>
-                  <input type="text" name="nombreUsurio" id="" placeholder='userName'/>
-                  <input type="text" name="nombreUsurio" id="" placeholder='userName'/>
-                  <input type="text" name="nombreUsurio" id="" placeholder=''/>
-              </form>
+          <div className="ptmm">
+            <div className="userInformation">
+              <div className="user-icon"><FaRegUserCircle /></div>
 
-            </div>
+              <div className="general-info">
 
-            <div className="user-resumen">
-              <div className="card resumen-card">
+                <div className="g-i">
+                  <h6 className='user-label'>ID</h6>
+                  <p>00000</p>
+                </div>
 
-                <div className="resumen-header"><FaRegUserCircle /></div>
-                <div className="user-res">
+                <div className="g-i">
+                  <h6 className='user-label'>Correo</h6>
+                  <p>correo@correo.com.mx</p>
+                </div>
 
 
+              </div>
+
+              <div className="rent-info">
+
+                <div className="rent-info-data">
+                  <h6 className='rent-i-h6'>00</h6>
+                  <p className='rent-i-p'>Arrendatarios</p>
+                </div>
+
+                <div className="rent-info-data">
+                  <h6 className='rent-i-h6'>00</h6>
+                  <p className='rent-i-p'>Inmuebles</p>
                 </div>
 
               </div>
+
             </div>
+
+            <div className="user-info-form">
+                  <PerfilForm/>
+            </div>
+
           </div>
 
         </div>
