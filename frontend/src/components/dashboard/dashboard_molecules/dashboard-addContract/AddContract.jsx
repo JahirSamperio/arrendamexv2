@@ -1,4 +1,6 @@
 import '../../dashboard.css'
+import '../dashboard-addContract/addContract.css'
+
 
 import { DashboardNav } from '../dashboard_navBar/DashboardNav'
 
@@ -17,9 +19,9 @@ export const AddContract = () => {
         
          <main className='col-2'>
 
-            <h3>Agregar arrendatario a inmueble:</h3>  
+            <h3 className='addC-title'>Agregar arrendatario a inmueble:</h3>  
             <div className="card">
-
+              
             </div>
 
 

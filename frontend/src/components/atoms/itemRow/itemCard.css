@@ -5,9 +5,9 @@
 }
 
 .item_card{
-    height: 20em;
-    width: 14em;
-    background-color: #757575;
+    height: 24em;
+    width: 18em;
+    background-color: #404040;
     border-radius: 6px;
 }
 
@@ -19,19 +19,23 @@
 
 .item_img{
     background-color: aliceblue;
-    height: 14em;
-    width: 12em;
+    height: 18em;
+    width: 16em;
     border-radius: 6px;
     margin: auto;
     top:  1em;
-    top: 10px;
     position: relative;
 }
 
 .item_name{
-    padding-top: 12px ;
+    padding-top: 18px ;
     text-align: center;
     color: aliceblue;
+    font-size: larger;
+}
+
+.item_info{
+    font-size: 1.3em;
 }
 
 .item_information{
@@ -40,10 +44,15 @@
 }
 
 .item_info{
-    margin-top: 10px;
+    margin-top: 6px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     margin-left: 0;
     justify-items: center;
+    color: aliceblue;
+    padding-bottom: 5px;
+}
+
+.ubicacion{
     color: aliceblue;
 }

@@ -1,19 +1,17 @@
 import axios from 'axios';
-import {
-    fetchNewUser,
-    fetchNewUserSuccess,
-    fetchNewFailure
-} from "../slices/users/newUserSlice";
+import { fetchLoginUser,fetchLoginFailure,fetchLoginUserSuccess } from '../slices/users/loginUserSlice';
 
 
-export const loginUser = (data) => async (dispatch) => {
+export const loginUser = () => async (dispatch) => {
+    
 
     try {
-        dispatch(fetchNewUser());
-        const {data} = await axios.get('http://localhost:3000/log/login', data);
+        dispatch(fetchLoginUser());
+        const {data} = await axios.get('http://localhost:3000/log/login');
         console.log(data.response);
-        dispatch(fetchNewUserSuccess(data.response));
+        dispatch(fetchLoginUserSuccess(data.response));
     } catch (error) {
-        dispatch(fetchNewFailure("Error, información no encontrada.Intente de nuevo"));
+        console.log(error);
+        dispatch(fetchLoginFailure("Error, información no encontrada.Intente de nuevo"));
     }
 }

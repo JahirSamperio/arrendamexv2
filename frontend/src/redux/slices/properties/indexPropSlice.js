@@ -1,19 +1,19 @@
 import { combineReducers } from "redux";
 
-import { newUserSlice } from "./newUserSlice";
-import { loginUserSlice } from "./loginUserSlice";
+import { getAllPropsSlice } from "./getAllPropsSlice";
+import { getRentalViewProps } from "./getRentalViewPropsSlice";
 // import { getUserInformationSlice } from "./informationUserSlice";
 // import { editUserSlice } from "./editUserSlice";
 
 
-export * from './newUserSlice';
-export * from './loginUserSlice';
+export * from './getAllPropsSlice';
+export * from './getRentalViewPropsSlice'
 // export * from './informationUserSlice';
 // export * from './editUserSlice';
 
-export const UsersReducer = combineReducers({
-    new: newUserSlice.reducer,
-    login:  loginUserSlice.reducer
+export const PropertiesReducer = combineReducers({
+    getAll: getAllPropsSlice.reducer,
+    getById: getRentalViewProps.reducer,
     // edit: editUserSlice.reducer,
     // information: getUserInformationSlice.reducer
 });

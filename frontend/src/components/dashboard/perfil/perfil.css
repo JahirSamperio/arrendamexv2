@@ -1,7 +1,7 @@
 .ptmm{
     margin-top: 10em;
     display: grid;
-    grid-template-columns: 35% 55%;
+    grid-template-columns: 25% 55%;
 
 }
 
@@ -36,7 +36,7 @@
     
     height: 22em;
     width: 16em;
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
 }
 
@@ -44,7 +44,7 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     margin: 6px;
-    background-color: #bcbcbc;
+    background-color: #dbdbdb;
     line-height: 28px;
     border-radius: 6px;
     text-align: center;
