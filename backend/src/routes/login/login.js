@@ -4,7 +4,7 @@ const { validateLogin } = require('../../validator/login/verificateLogin');
 
 const router = Router();
 
-router.get('/login', validateLogin, logUserControllers);
+router.post('/login', logUserControllers);
 
 
 module.exports = router;

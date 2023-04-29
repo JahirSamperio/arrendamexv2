@@ -109,6 +109,26 @@ const getInmuebleByArrendadorService = async (id_usuario) => {
     } 
 }
 
+const getArrendatariosLengthService = async (id_usuario) => {
+    try{
+        let response = await getArrendatariosModel(id_usuario);    
+        let numArrendatarios = response.length;    
+        return numArrendatarios;
+    } catch(error){
+        return error;
+    } 
+}
+
+const getInmueblesLengthService = async (id_usuario) => {
+    try{
+        let response = await getInmuebleByArrendadorModel(id_usuario);        
+        let numInmuebles = response.length;
+        return numInmuebles;
+    } catch(error){
+        return error;
+    } 
+}
+
 module.exports = {
     getInmuebleByIdService,
     getInmuebleByNameService,
@@ -118,5 +138,7 @@ module.exports = {
     getAllInmuebleService,
     getArrendatariosService,
     getInmuebleByArrendadorService,
-    editInmuebleService
+    editInmuebleService,
+    getInmueblesLengthService,
+    getArrendatariosLengthService
 }
