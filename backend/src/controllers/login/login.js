@@ -5,7 +5,7 @@ const {
 } = require('../../services/login/login');
 
 const logUserControllers = async (req = request, res = response) => {
-    const {email, password} = req.query;
+    const {email, password} = req.body;
     try {
         let response = await logUserServices(email, password);
         
