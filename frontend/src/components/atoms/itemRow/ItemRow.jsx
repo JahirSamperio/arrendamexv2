@@ -2,20 +2,36 @@ import './itemCard.css'
 
 import {MdOutlineBedroomParent} from 'react-icons/md';
 import {RiMoneyDollarBoxLine} from 'react-icons/ri';
-import {GrMapLocation} from 'react-icons/gr';
+import {useNavigate} from "react-router-dom"
 import {BiArea} from 'react-icons/bi';
+import {TiLocationOutline} from 'react-icons/ti';
 
-const ItemCard = () => {
+export const ItemCard = ({
+  id_propertie = "1234",
+  name = "-------",
+  cuartos = "-------",
+  superficie = "-------",
+  ubicacion = "-------",
+  costo = "-------",
+}) => {
+
+    const navigate = useNavigate();
+
+   
+
   return (
-    <div className='item_card'>
+    <div className='item_card' 
+    onClick={() => {
+      navigate(`/Propertie/${id_propertie}`);
+    }}>
         <div className='item_img'></div>
         <div className='item_information'>
-            <p className='item_name'>Nombre</p>
+            <p className='item_name'>{name}</p>
             <div className="item_info">
-                <p className="cuartos"><MdOutlineBedroomParent/> ---</p>
-                <p className="superficie"><BiArea/> ---</p>
-                <p className="ubicacion"><GrMapLocation/> ---</p>
-                <p className="costo"><RiMoneyDollarBoxLine/> ---</p>
+                <p className="cuartos"><MdOutlineBedroomParent/>{cuartos}</p>
+                <p className="superficie"><BiArea/>{superficie}</p>
+                <p className="ubicacion"><TiLocationOutline/>{ubicacion}</p>
+                <p className="costo"><RiMoneyDollarBoxLine/> {costo}</p>
             </div>
         </div>
     </div>
@@ -24,18 +40,5 @@ const ItemCard = () => {
 
 import React from 'react'
 
-export const ItemRow = () => {
-  return (
-    <div className="card_row">
-     <ItemCard/>
-     <ItemCard/>
-     <ItemCard/>
-     <ItemCard/>
-     <ItemCard/>
-    </div>
-  )
-}
 
 
-
-export default ItemRow;

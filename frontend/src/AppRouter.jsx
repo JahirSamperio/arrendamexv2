@@ -10,6 +10,9 @@ import { Rentas } from "./components/dashboard/renta/Rentas";
 import { Perfil } from "./components/dashboard/perfil/Perfil";
 import { AddProp } from "./components/dashboard/dashboard_molecules/dashboard-properties/AddProp";
 import { AddContract } from "./components/dashboard/dashboard_molecules/dashboard-addContract/AddContract";
+import { RentalView } from "./components/rentalView/RentalView";
+
+
 
 function AppRouter() {
  
@@ -30,6 +33,7 @@ function AppRouter() {
       <Route path="/DashboardPerfil" element={<Perfil/>}/>
       <Route path="/AddProperty" element={<AddProp/>}/>
       <Route path="/AddContract" element={<AddContract/>}/>
+      <Route path="/Propertie/:id_propertie" element={<RentalView/>}/>
     </Routes>
 
 

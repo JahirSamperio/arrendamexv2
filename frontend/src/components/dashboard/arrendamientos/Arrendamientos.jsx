@@ -31,14 +31,14 @@ export const Arrendamientos = () => {
                 <h6 className='mb-0'>Arrendatarios</h6>
               </div>
 
-              <table class="table align-items-center mb-0">
+              <table className="table align-items-center mb-0">
                 <thead>
                   <tr className='th-cont'>
-                    <th class="th-contract">Arrendatario</th>
-                    <th class="th-contract">Inmueble</th>
-                    <th class="th-contract">Estado</th>
-                    <th class="th-contract">Fecha de pago</th>
-                    <th class="text-secondary opacity-7"></th>
+                    <th className="th-contract">Arrendatario</th>
+                    <th className="th-contract">Inmueble</th>
+                    <th className="th-contract">Estado</th>
+                    <th className="th-contract">Fecha de pago</th>
+                    <th className="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -61,10 +61,10 @@ export const Arrendamientos = () => {
                 <thead>
                   <tr className='trt'>
 
-                    <th class="thh">Nombre</th>
-                    <th class="thh">Pago por mes</th>
-                    <th class="thh">Estado</th>
-                    <th class="thh">Tipo</th>
+                    <th className="thh">Nombre</th>
+                    <th className="thh">Pago por mes</th>
+                    <th className="thh">Estado</th>
+                    <th className="thh">Tipo</th>
 
                   </tr>
                 </thead>

@@ -1,12 +1,34 @@
+
 import  NavBar  from "../atoms/navBar/NavBar";
-import ItemRow from "../atoms/itemRow/ItemRow";
+import {ItemCard} from "../atoms/itemRow/ItemRow";
 import { Search } from "../molecules/search/Search";
 import { Footer } from "../atoms/footer/Footer";
+import {useSelector,useDispatch} from 'react-redux';
+import { useEffect } from "react";
+
+import { getAllProps } from "../../redux/actions/properties/getAllProps";
 
 import './home.css'
+import { name } from "ejs";
+
 
 
 const Home = () =>{
+
+    const dispatch = useDispatch();
+
+
+
+    const {sucess, error,propData} = useSelector((state) => state.properties.getAll);
+
+    useEffect( () =>{
+        dispatch(getAllProps());
+    },[])       
+
+    useEffect(() =>{
+        console.log(propData);
+    },[propData])
+
     return(
         <>
             
@@ -16,10 +38,24 @@ const Home = () =>{
             </div>
             
             <div className="item_container">
-                <ItemRow/>
-                <ItemRow/>
-                <ItemRow/>
+                {
+                propData.map((element, index) => {
+
+                    return (<>
+                    <ItemCard 
+                    key={index}
+                    id_propertie={element.id}
+                    name={element.nombre}
+                    costo={element.precio}
+                    cuartos="0"
+                    ubicacion="0,0"
+                    superficie="0"
+                    />
+                    </>)
+                })}
             </div>
+
+            {error == true? <h1>Error al traer</h1> : <></>}
             <Footer/>
 
             
