@@ -1,5 +1,52 @@
 
 
-.addC-title{
-    
+.addContractI-cont{
+    width: 65em;
+    margin-top: 4.2em;
 }
+
+
+.addContract-form{
+    background-color: rgb(223, 217, 209);
+    line-height: 1.8em;
+    width: max-content;
+    border-radius: 12px;
+    margin: 18px;
+}
+
+.adc-i-cont{
+    margin: 6px;
+    padding: 2px 4px;
+}
+
+.adc-i{
+    border: none;
+    border-radius: 2px;
+    width: 8em ;
+}
+
+.addContract-btn{
+    margin-left: 12em;
+    color: #eeecec;
+    background-image: linear-gradient(310deg, #2d75ce 0%, #2d5dce 100%);
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px ;
+    padding-inline: 2px;
+    cursor: pointer;
+
+}
+
+.addContract-btn:hover{
+    color: #2d2d2d;
+    background-image: linear-gradient(310deg, #ece2e2 0%, #b5c5e8 100%) ;
+    border: solid .8px #6a91ec;
+}
+
+.adContract-inmueblesT{
+    background-color: #eeecec;
+    width: 40em;
+    height: 15em;
+    margin: 18px;
+    border-radius: 12px;
+}   

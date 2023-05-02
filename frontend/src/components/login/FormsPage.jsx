@@ -40,7 +40,7 @@ const FormsPage = () =>{
         
             <div className="forms_page">
                 <div className="logo_section">
-                    <p className="eslogan">Tus rentas, pero más simples.</p>
+
                 </div>
 
                 <div className="form_section">

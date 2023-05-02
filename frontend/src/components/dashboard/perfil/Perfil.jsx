@@ -7,6 +7,7 @@ import { FaRegUserCircle } from 'react-icons/fa';
 
 import { DashboardNav } from '../dashboard_molecules/dashboard_navBar/DashboardNav'
 import { PerfilForm } from '../dashboard_molecules/perfil-form/PerfilForm';
+import { name } from 'ejs';
 
 
 
@@ -30,12 +31,12 @@ export const Perfil = () => {
 
                 <div className="g-i">
                   <h6 className='user-label'>ID</h6>
-                  <p>00000</p>
+                  <p>{localStorage.getItem('id')}</p>
                 </div>
 
                 <div className="g-i">
                   <h6 className='user-label'>Correo</h6>
-                  <p>correo@correo.com.mx</p>
+                  <p>{localStorage.getItem('email')}</p>
                 </div>
 
 
@@ -58,7 +59,7 @@ export const Perfil = () => {
             </div>
 
             <div className="user-info-form">
-                  <PerfilForm/>
+                  <PerfilForm />
             </div>
 
           </div>

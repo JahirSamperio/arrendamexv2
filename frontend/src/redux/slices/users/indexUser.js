@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 
-import { newUserSlice } from "./newUserSlice";
-import { loginUserSlice } from "./loginUserSlice";
+import { newUserSlice } from "../users/newUserSlice";
+import { loginUserSlice } from "../users/loginUserSlice";
 // import { getUserInformationSlice } from "./informationUserSlice";
 // import { editUserSlice } from "./editUserSlice";
 
 
-export * from './newUserSlice';
-export * from './loginUserSlice';
+export * from '../users/newUserSlice';
+export * from '../users/loginUserSlice';
 // export * from './informationUserSlice';
 // export * from './editUserSlice';
 

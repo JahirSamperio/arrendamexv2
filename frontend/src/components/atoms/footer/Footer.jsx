@@ -8,9 +8,8 @@ export const Footer = () => {
     <footer>
     <div className="footer-container">
         <div className="footer-content-container">
-            <img src="/frontend/src/public/img/imagen1.png" alt="" className="website-logo" />
             <span className="footer-info">111 111 111</span>
-            <span className="footer-info">academy@itskrey.com</span>
+            <span className="footer-info">correo@correo.com</span>
         </div>
         <div className="footer-menus">
             <div className="footer-content-container">
@@ -29,7 +28,7 @@ export const Footer = () => {
         </div>
     </div>
     <div className="copyright-container">
-        <span className="copyright">Copyright 2021, itskrey.com. All rights reserved.</span>
+        <span className="copyright">Copyright 2023, Rubix.Inc All rights reserved.</span>
     </div>
 </footer>
   )

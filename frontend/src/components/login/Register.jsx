@@ -1,5 +1,5 @@
 import React,{useEffect} from "react"
-import { newUser } from "../../redux/actions/newUser";
+import { newUser } from "../../redux/actions/users/newUser";
 import {useDispatch,useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import './login.css'
@@ -13,6 +13,7 @@ export function Register  () {
     const {loading,success,error,userData
     } = useSelector((state) => state.users.new);
 
+    
     useEffect(() =>{
         console.log(userData); 
     },[userData])

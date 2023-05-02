@@ -1,6 +1,25 @@
+import { useDispatch, useSelector } from 'react-redux'
 import './pf.css'
 
 export const PerfilForm = () => {
+  
+  const dispatch = useDispatch();
+
+  const {loading,success, error, dataUserEdit} = useSelector((state) => state.user.edit);
+
+  const handleEditUser = (data) =>{
+
+      const userInfo = {
+        name: data.userFName.target.value,
+        sname: data.userLName.target.value,
+        phone: data.userPhoneN.target.value
+
+      }
+
+
+  }
+
+
   return (
     <div className='pf-container card'>
       
@@ -12,12 +31,12 @@ export const PerfilForm = () => {
 
           <div className="pf-campo">
             <label htmlFor="userFName" className='pf-campo-label'>Nombre(s) </label>
-            <input type="text" name="userFName" id="" placeholder='Nombre(s) de usuario' className='pf-campo-input' />
+            <input type="text" name="userFName" id="" placeholder='Nombre(s) de usuario' className='pf-campo-input' value={localStorage.getItem('name')} />
           </div>
 
           <div className="pf-campo">
             <label htmlFor="userLName" className='pf-campo-label'>Apellido(s) </label>
-            <input type="text" name='userLName' id='' placeholder='Apellido(s) del usuario' className='pf-campo-input' />
+            <input type="text" name='userLName' id='' placeholder='Apellido(s) del usuario' className='pf-campo-input' value={localStorage.getItem('sname')} />
           </div>
 
 
@@ -26,7 +45,7 @@ export const PerfilForm = () => {
         <div className="pf-phone">
             <div className="pf-campo">
               <label htmlFor="userPhonN" className='pf-campo-label'>Telefono </label>
-              <input type="text" name='userPhoneN' placeholder='1234567890' className='pf-campo-input pciP'/>
+              <input type="text" name='userPhoneN' placeholder='1234567890' className='pf-campo-input pciP' value={localStorage.getItem('telefono')}/>
             </div>
         </div>
 

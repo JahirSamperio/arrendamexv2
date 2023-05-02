@@ -3,7 +3,7 @@ const conexion = mysql.createConnection({
     host: 'localhost',
     database: 'arrendamex',
     user: 'root',
-    password: 'root',
+    password: '',
 });
 
 const dbConnection = () => {
