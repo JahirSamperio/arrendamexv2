@@ -32,6 +32,6 @@ export const loginUserSlice = createSlice({
 
 export const {
     fetchLoginUser,
-    fetchLoginUserSuccess,
+    fetchLoginSuccess,
     fetchLoginFailure
 } = loginUserSlice.actions;

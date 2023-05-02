@@ -24,13 +24,12 @@ export const Rentas = () => {
               </div>
               
               <div className="dashboard-tables">
-                    <div className="requested">
-                        
+                    <div className="rentals card">
+                          <div className="card-header"><h6>Arrendamientos</h6></div>
                     </div>
 
-                    <div className="scheduled">
-                        
-                    </div>
+                    
+
               </div>
 
 

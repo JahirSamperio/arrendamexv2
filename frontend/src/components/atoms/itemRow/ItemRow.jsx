@@ -7,12 +7,12 @@ import {BiArea} from 'react-icons/bi';
 import {TiLocationOutline} from 'react-icons/ti';
 
 export const ItemCard = ({
-  id_propertie = "1234",
-  name = "-------",
-  cuartos = "-------",
-  superficie = "-------",
-  ubicacion = "-------",
-  costo = "-------",
+  id_propertie = "",
+  name = "",
+  cuartos = "-",
+  superficie = "-",
+  ubicacion = "-",
+  costo = "-",
 }) => {
 
     const navigate = useNavigate();

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { loginUser } from "../../redux/actions/loginUser";
+import { loginUser } from "../../redux/actions/users/loginUser";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
+
 
 
 
@@ -14,36 +15,46 @@ export const Login = () => {
 
     const { loading,success, error, loginData} = useSelector((state) => state.users.login);
 
+    // const {names,email,password,telefono} = useSelector((state) => state.users.new);
 
-    const handleUserLogin = (data) => {
-        console.log(data);
-        const loginData = {
-            email: data.target.userEmail.value,
-            password: data.target.userPassword.value,
+    const {nombre,apellidos,password,id,telefono,email} = loginData
+
+    useEffect(() =>{
+        console.log(loginData); 
+    },[loginData])
+
+    const handleUserLogin = (dataa) => {
+        console.log(dataa);
+        const loginForm = {
+            email: dataa.target.userEmail.value,
+            password: dataa.target.userPassword.value,
         }
 
-        dispatch(loginUser(loginData));
+        dispatch(loginUser(loginForm));
     }
 
 
-    useEffect(() => {
-        console.log(`${loginData}`);
-    }, [error])
 
     useEffect(() => {
         console.log(` success: ${success}`);
-        if (success == true) {
+        if (success == true ) {
 
-            localStorage.setItem('names', names);
+            localStorage.setItem('name', nombre);
+            localStorage.setItem('sname', apellidos);
             localStorage.setItem('email', email);
             localStorage.setItem('password', password);
             localStorage.setItem('telefono', telefono);
+            localStorage.setItem('id', id);
 
             navigate('/Home');
+            
 
+        }else{
+            alert('Error en inicio de sesion');
+            console.log(error)
         }
 
-    }, [success])
+    }, [success,loginData])
 
     return (
 

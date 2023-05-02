@@ -12,10 +12,11 @@
 }
 
 .logo_section{
-    background-image: url(./../../public/img/imagen1.png);
-    background-size: cover;
+    background-image: url(./../../public/img/155636-torre_de_bloques-arquitectura-area_urbana-urbe-edificio_comercial-3840x2160-_1_.png.png);
+    background-size:210%;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center right;
+    
 
 }
 .eslogan{

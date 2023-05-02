@@ -9,7 +9,7 @@ import {BsArrowRightShort} from 'react-icons/bs';
 
 import { Link } from 'react-router-dom';
 
-export const CardOne = () => {
+export const CardOne = ({depositosHoy ="",fechaHoy =""}) => {
     return (
         <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div className="card">
@@ -39,7 +39,7 @@ export const CardOne = () => {
 }
 
 
-export const CardTwo = () => {
+export const CardTwo = ({pendientes=""}) => {
     return (
 
         <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">

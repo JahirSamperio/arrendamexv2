@@ -17,7 +17,7 @@ export const Dashboard = () => {
          </aside>
         
          <main className='col-2'>
-              
+              <h5 style={{paddingTop:'30px',color:'#f3f3f3',fontSize:'32px'}}>Hola, {localStorage.getItem('name')}</h5>
               <div className="row-container">
                   <DashboardRow/>
               </div>
