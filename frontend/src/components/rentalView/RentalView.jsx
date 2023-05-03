@@ -8,51 +8,43 @@ import NavBar from '../atoms/navBar/NavBar'
 
 import './rentalview.css';
 import {FaBath} from 'react-icons/fa';
+import {BsTextarea} from 'react-icons/bs'
+import {MdBedroomChild,MdMonetizationOn} from 'react-icons/md'
+import {AiFillCar} from 'react-icons/ai'
 
 
-
-
-
-export const RentalView = () => {
-
-  // Crear toda la logica en redux para obtener
-  // la informacion del producto 
-
-  // Traerlo desde la API
-
-  //Mostrarla en un console.log();
+export const RentalView = ({}) => {
 
   const dispatch = useDispatch();
 
-  const { id_propertie } = useParams();
+  const { id_propertie:id } = useParams();
 
+  console.log(id);
+  
+  const {rentalViewData,success}  = useSelector((state) => state.properties.getById);
 
-  const { success, error, rentalViewData } = useSelector((state) => state.properties.getById);
+  const { nombre,descripcion,tipoInmueble,id_arrendador,rv,precio, estado,municipio,colonia,latitud,longitud,superficie_total
+    ,antiguedad,num_recamaras,num_estacionamientos,superficie_construida,pathImage } = rentalViewData;
 
-  const { name, precio, banos, tipoInmueble, tipoContrato, superficie, habitaciones, parking } = rentalViewData;
 
   useEffect(() => {
-    dispatch(getRentalView(4));
+    dispatch(getRentalView(id));
   }, [])
 
   useEffect(() => {
     console.log(rentalViewData);
   }, [rentalViewData])
 
+    
 
   return (
-    // <div>
-    //    <p> josue : {name}</p>
-    //    <p> josue : {precio}</p>
-    // </div>
-
 
     <div className="oa">
       <NavBar />
 
       <div className="rental-view">
-        <div className="rental-view-header"><h2>{name}</h2></div>
-
+        <div className="rental-view-header"><h2>{nombre}</h2></div>
+ 
         <div className="rental-view-content">
 
           <div className="rental-view-col1">
@@ -61,15 +53,12 @@ export const RentalView = () => {
             </div>
 
             <div className="rental-view-desc">
-              <div className="rv-info-h6"><h6>Descripcion</h6></div>
+              <div className="rv-info-h6"><h6>{descripcion}</h6></div>
 
-              <p>Esta sera una descripcion del inmueble jaja
-                la verdad no se que poner, buena inteligencia
-                por eso controlo, disfrutando de mis logros, me
-                acostumbre a golear, con hechos demostrar, no
-                confunda mi humildad, soy hombre de palabra.
-                Para el jale efectivo...
+              <p>
+                
               </p>
+
             </div>
 
             <div className="rental-view-map-cont">
@@ -87,11 +76,11 @@ export const RentalView = () => {
             <div className="rental-view-info">
               <p className='rv-info-p'>Tipo de inmueble: <span className="rv-info-s">---</span></p>
               <p className='rv-info-p'>Tipo de contrato: <span className="rv-info-s">---</span></p>
-              <p className='rv-info-p'>Superficie: <span className="rv-info-s">---</span></p>
-              <p className='rv-info-p'>Habitaciones: <span className="rv-info-s">---</span></p>
-              <p className='rv-info-p'>Banos: <span className="rv-info-s">---</span></p>
-              <p className='rv-info-p'>Parking: <span className="rv-info-s">---</span></p>
-              <p className='rv-info-p'>Precio: <span className="rv-info-s">{precio}</span></p>
+              <p className='rv-info-p'><BsTextarea/> <span className="rv-info-s">---</span></p>
+              <p className='rv-info-p' style={{fontSize:'20px'}}><MdBedroomChild/> <span className="rv-info-s">---</span></p>
+              <p className='rv-info-p'><FaBath/> <span className="rv-info-s">---</span></p>
+              <p className='rv-info-p' style={{fontSize:'20px'}}><AiFillCar/> <span className="rv-info-s">---</span></p>
+              <p className='rv-info-p' style={{fontSize:'20px'}}><span className="rv-info-s">${precio}</span></p>
 
             </div>
 

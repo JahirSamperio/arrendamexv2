@@ -49,7 +49,7 @@ export const Login = () => {
             navigate('/Home');
             
 
-        }else{
+        }else if(error == true){
             alert('Error en inicio de sesion');
             console.log(error)
         }
