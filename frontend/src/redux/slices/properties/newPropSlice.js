@@ -13,25 +13,32 @@ export const newPropSlice = createSlice({
     reducers: {
         fetchNewProp: (state, action) => {
             state.loading = true;
-            state.error = null;
-            state.success = null;
+    state.error = null;
+    state.success = null;
         },
         fetchNewPropSuccess: (state, action) => {
             state.loading = false,
-                state.error = false,
-                state.success = true;
-            state.propData = action.payload;
+            state.error = false,
+            state.success = true;
+        state.propData = action.payload;
         },
         fetchNewPropFailure: (state, action) => {
             state.error = action.payload;
             state.loading = false;
             state.success = false;
+        },
+        resetDataNewPropProcess: (state, action) => {
+            state.loading = null
+            state.error = null
+            state.success = null
         }
     }
 });
 
+
 export const {
     fetchNewPropSuccess,
     fetchNewProp,
-    fetchNewPropFailure
+    fetchNewPropFailure,
+    resetDataNewPropProcess
 } = newPropSlice.actions;

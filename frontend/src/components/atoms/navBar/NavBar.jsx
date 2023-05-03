@@ -8,6 +8,14 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
+
+
+  const [isActive, setActive] = useState(false);
+
+  const handleToggleBtn = () => {
+    setActive(!isActive);
+  }
+
   const navigate = useNavigate();
 
   const [session, setSession] = useState(false)
@@ -40,9 +48,9 @@ const NavBar = () => {
 
 
 
-  const closeSession = () =>{
-      localStorage.clear();
-      navigate('/');
+  const closeSession = () => {
+    localStorage.clear();
+    navigate('/');
   }
 
   return (
@@ -62,14 +70,17 @@ const NavBar = () => {
 
         {session == true ?
 
-          <div className="session-btn"><i><FaUserCircle /></i> {`${localStorage.getItem('name')}  `}<button className="dropdown-btn">▼</button>
-           
-              <ul className="dropdown-menu">
-              <li><Link to={'/Dashboard'} onClick={handleDashboardClick} className="dm-li">Dashboard</Link></li>
-              <li><button onClick={closeSession}>Cerrar sesion</button></li>
-              </ul>
+          <div className="session-btn"><i><FaUserCircle /></i> {`${localStorage.getItem('name')}  `}<button set onClick={handleToggleBtn} className="dropdown-btn"> ▼</button>
 
-            </div>
+            {isActive &&
+              (<div className="menu" style={{display:'flex',flexDirection:'column'}}>
+                <Link to={'/Dashboard'} onClick={handleDashboardClick} className="dm-li">Dashboard</Link>
+                <button onClick={closeSession} className="dm-li">Cerrar sesion</button>
+              </div>)}
+
+
+
+          </div>
           :
           <button className="login-btn" onClick={handleLoginClick}>Iniciar sesion</button>}
 
@@ -98,7 +109,7 @@ function UserSelectionNav() {
     <div>
       <select value={valorSeleccionado} onChange={(event) => setValorSeleccionado(event.target.value)}>
         <option value=""></option>
-        <option value="http://localhost:5173/Dashboard">Dashboard</option>
+        <option value="http://localhost:5173=/Dashboard">Dashboard</option>
         <option value="">Cerrar sesion</option>
       </select>
       <button onClick={redirigir}>Ir</button>
