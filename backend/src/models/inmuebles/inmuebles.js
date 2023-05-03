@@ -70,8 +70,8 @@ function newInmuebleModel(data) {
     const {nombre, descripcion, tipoInmueble,  renta_venta, precio,id_arrendador, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_recamaras, num_estacionamientos, superficie_construida } = data;
     return new Promise((resolve, reject) => {
         conexion.query(
-            `INSERT INTO inmuebles(nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage, id_arrendador, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_recamaras, num_estacionamientos, superficie_construida)
-            VALUES ('${nombre}', '${descripcion}', '${tipoInmueble}', '${renta_venta}', '${precio}', '${pathImage}', '${id_arrendador}', '${estado}', '${municipio}', '${colonia}', '${latitud}', '${longitud}', '${superficie_total}', '${antiguedad}', '${num_recamaras}', '${num_estacionamientos}', '${superficie_construida}')`,
+            `INSERT INTO inmuebles(nombre, descripcion, tipoInmueble, renta_venta, precio, id_arrendador, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_recamaras, num_estacionamientos, superficie_construida)
+            VALUES ('${nombre}', '${descripcion}', '${tipoInmueble}', '${renta_venta}', '${precio}', '${id_arrendador}', '${estado}', '${municipio}', '${colonia}', '${latitud}', '${longitud}', '${superficie_total}', '${antiguedad}', '${num_recamaras}', '${num_estacionamientos}', '${superficie_construida}')`,
             function (error, result, field) {
                 if (error) 
                     return reject(error);
