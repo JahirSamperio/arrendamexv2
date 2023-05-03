@@ -5,6 +5,7 @@ import { DashboardNav } from '../dashboard_navBar/DashboardNav'
 import { useDispatch, useSelector } from 'react-redux';
 import { newProp } from '../../../../redux/actions/properties/newProp';
 import { useNavigate } from 'react-router-dom';
+import { resetDataNewPropProcess } from '../../../../redux/slices/properties/newPropSlice';
 
 
 export const AddProp = () => {
@@ -38,7 +39,7 @@ export const AddProp = () => {
       num_recamaras: data.target.inmuebleRecamaras.value,
       num_estacionamientos: data.target.inmuebleParking.value,
       superficie_construida: data.target.superficieC.value,
-      pathImage: data.target.inmuebleImagen.value,
+      // pathImage: data.target.inmuebleImagen.value,
 
     }
 
@@ -60,6 +61,13 @@ export const AddProp = () => {
   }, [success])
 
 
+  useEffect(() => {
+    if (success || error) {
+      setTimeout(() => {
+        dispatch(resetDataNewPropProcess());
+      }, 2000);
+    }
+  }, [success, error])
 
 
 

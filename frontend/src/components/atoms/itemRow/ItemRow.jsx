@@ -13,6 +13,7 @@ export const ItemCard = ({
   superficie = "-",
   ubicacion = "-",
   costo = "-",
+  vr = " -"
 }) => {
 
     const navigate = useNavigate();
@@ -26,13 +27,15 @@ export const ItemCard = ({
     }}>
         <div className='item_img'></div>
         <div className='item_information'>
-            <p className='item_name'>{name}</p>
+            <p className='item_name'>{name} - <span style={{textTransform:'uppercase'}}>{vr}</span></p>
             <div className="item_info">
                 <p className="cuartos"><MdOutlineBedroomParent/>{cuartos}</p>
                 <p className="superficie"><BiArea/>{superficie}</p>
                 <p className="ubicacion"><TiLocationOutline/>{ubicacion}</p>
                 <p className="costo"><RiMoneyDollarBoxLine/> {costo}</p>
+                
             </div>
+            
         </div>
     </div>
   )
