@@ -10,7 +10,8 @@ const {
     getInmuebleByArrendadorController,
     editInmuebleController,
     getInmueblesLengthController,
-    getArrendatariosLengthController
+    getArrendatariosLengthController,
+    getProfileInfoController
 } = require('../../controllers/inmuebles/inmuebles');
 
 const router = Router();
@@ -48,5 +49,8 @@ router.get('/numinmuebles', getInmueblesLengthController);
 
 //Numero de arrendatarios de cada usuario
 router.get('/numarrendatarios', getArrendatariosLengthController);
+
+//Perfil del inmueble
+router.get('/profile', getProfileInfoController);
 
 module.exports = router;
