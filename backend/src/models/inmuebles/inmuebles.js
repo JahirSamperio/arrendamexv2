@@ -75,8 +75,11 @@ function newInmuebleModel(data) {
             function (error, result, field) {
                 if (error) 
                     return reject(error);
+                
                 return resolve(result);
             })
+
+            
     })
 }
 //Editar inmueble
