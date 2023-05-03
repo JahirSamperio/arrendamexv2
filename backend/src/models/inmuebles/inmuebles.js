@@ -67,11 +67,7 @@ function searchInmuebleByRentaModel(renta_venta) {
 
 //Inserta nuevo inmueble
 function newInmuebleModel(data) {
-<<<<<<< HEAD
-    const {nombre, descripcion, tipoInmueble,  renta_venta, precio, pathImage, id_arrendador, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_baños, num_recamaras, num_estacionamientos, superficie_construida } = data;
-=======
     const {nombre, descripcion, tipoInmueble,  renta_venta, precio, pathImage, id_arrendador, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_recamaras, num_estacionamientos, superficie_construida } = data;
->>>>>>> 1ff1b73556e9a76dc50bd69713cb3795977e95ee
     return new Promise((resolve, reject) => {
         conexion.query(
             `INSERT INTO inmuebles(nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage, id_arrendador, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_recamaras, num_estacionamientos, superficie_construida)
