@@ -77,4 +77,16 @@
 .search_filters{
     padding-top: 6px;
     padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.apply-btn-s{
+    margin-top: 2px;
+    background-color: #358d49;
+    border-radius: 5px;
+    border: none;
+    color: aliceblue;
+    font-size: 16px;
 }
