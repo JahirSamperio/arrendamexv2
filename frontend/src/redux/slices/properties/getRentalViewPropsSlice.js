@@ -4,7 +4,7 @@ const initialState = {
     loading: false,
     error: null,
     success: false,
-    rentalViewData: []
+    rentalViewData: {}
 };
 
 export const getRentalViewProps = createSlice({
