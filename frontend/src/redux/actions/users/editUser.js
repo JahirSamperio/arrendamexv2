@@ -17,6 +17,6 @@ export const editUser = (editForm) => async (dispatch) => {
         dispatch(fetchEditUserSuccess(data.response));
 
     } catch (error) {
-        dispatch(fetchEditUserFailure("Error, no se pudo actualizar el usuario"));
+        dispatch(fetchEditUserFailure("Error, no se pudo actualizar la informacion usuario"));
     }
 }

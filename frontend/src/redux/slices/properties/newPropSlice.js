@@ -1,28 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    loading: null,
+    loading: false,
     error: null,
-    success: null,
-    dataUserEdit: []
+    success: false,
+    propData: {}
 };
 
-export const editUserSlice = createSlice({
-    name: 'editUserSlice',
+export const newPropSlice = createSlice({
+    name: 'newPropSlice',
     initialState,
     reducers: {
-        fetchEditUser: (state, action) => {
+        fetchNewProp: (state, action) => {
             state.loading = true;
             state.error = null;
             state.success = null;
         },
-        fetchEitUserSuccess: (state, action) => {
+        fetchNewPropSuccess: (state, action) => {
             state.loading = false,
                 state.error = false,
                 state.success = true;
-            state.dataUserEdit= action.payload;
+            state.propData = action.payload;
         },
-        fetchEditUserFailure: (state, action) => {
+        fetchNewPropFailure: (state, action) => {
             state.error = action.payload;
             state.loading = false;
             state.success = false;
@@ -31,7 +31,7 @@ export const editUserSlice = createSlice({
 });
 
 export const {
-    fetchEditUser,
-    fetchEditUserFailure,
-    fetchEditUserSuccess
-} = editUserSlice.actions;
+    fetchNewProp,
+    fetchNewPropFailure,
+    fetchNewPropSuccess
+} = newPropSlice.actions;
