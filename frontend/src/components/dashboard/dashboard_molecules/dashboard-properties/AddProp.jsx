@@ -1,40 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './property.css';
 
 
 import { DashboardNav } from '../dashboard_navBar/DashboardNav'
-
-
-
-// const dispatch = useDispatch();
-// const [formData, setFormData] = useState({
-//   nombre: '',
-//   email: '',
-//   genero: '',
-//   color: '',
-// });
-
-// const handleInputChange = (event) => {
-//   setFormData({
-//     ...formData,
-//     [event.target.name]: event.target.value
-//   });
-// };
-
-// const handleSubmit = (event) => {
-//   event.preventDefault();
-//   dispatch(sendFormData(formData));
-// };
+import { useDispatch, useSelector } from 'react-redux';
+import { newProp } from '../../../../redux/actions/properties/newProp';
 
 
 export const AddProp = () => {
 
-  const [addPropData, setPropData] = useState({
+  const { loading, success, error, propData } = useSelector((state) => state.properties.newProp);
 
-    nombre: ''
+  useEffect(() => {
+    console.log(propData);
+  }, [propData])
+
+  const dispatch = useDispatch();
 
 
-  })
+  const handleUploadProperty = (data) => {
+
+    const formData = {
+      propName: data.target.nombreInmueble.value,
+      propDesc: data.target.descripcion.value,
+      propType: data.target.propType.value,
+      propSpin: data.target.propSpin.value,
+      propPrice: data.target.precioInmueble.value,
+      propState: data.target.inmuebleEstado.value,
+      propCity: data.target.inmuebleMunicipio.value,
+      propCol: data.target.inmuebleColonia.value,
+      propLat: data.target.lat.value,
+      propAlt: data.target.alt.value,
+      propImg: data.target.inmuebleImagen.value,
+      propSur: data.target.superficieT.value,
+      propBuilt: data.target.superficieC.value,
+      propAge: data.target.inmuebleAntiguedad.value,
+      propBaths: data.target.inmuebleBanos.value,
+      propRooms: data.target.inmuebleRecamaras.value,
+      propParkS: data.target.inmuebleParkings.value,
+    }
+
+    dispatch(newProp(formData));
+
+
+  }
+
+  useEffect(() => {
+
+    if (success) {
+      alert('Inmueble agregado');
+      navigate('/Dashboard');
+    }
+
+  }, [success])
 
 
 
@@ -55,7 +73,10 @@ export const AddProp = () => {
             <div className="card-header"><h6>Agregar inmueble</h6></div>
 
             <div className="">
-              <form action="" className='addProperty-form'>
+              <form method='submit' onSubmit={(e) => {
+                (e).preventDefault();
+                handleUploadProperty(e);
+              }} className='addProperty-form'>
 
 
 
@@ -67,39 +88,33 @@ export const AddProp = () => {
                   </div>
 
                   <div className="apf-i-cont desc">
-                    <label htmlFor="nombreInmueble">Descripcion </label>
-                    <input type="text" name='nombreInmueble' className='apf-i i-desc' />
+                    <label htmlFor="descripcion">Descripcion </label>
+                    <input type="text" name='descripcion' className='apf-i i-desc' />
                   </div>
                 </div>
 
 
 
                 <div className="radios-cont">
-                  {/* checked={formData.genero === 'hombre'} onChange={handleInputChange} */}
                   <div className="apf-i-cont">
-                    <label htmlFor="tipoInmueble">Tipo:</label>
-                    <br />
-                    <input type="radio" id="casa" name="tipoInmueble" value="Casa" />
-                    <label htmlFor="casa">Casa</label>
-                    <br />
-                    <input type="radio" id="depto" name="tipoInmueble" value="Departamento" />
-                    <label htmlFor="depto">Departamento</label>
-                    <br />
-                    <input type="radio" id="local" name="tipoInmueble" value="Local" />
-                    <label htmlFor="local">Local</label>
-                    <br />
-                    <input type="radio" id="terreno" name="tipoInmueble" value="Terreno" />
-                    <label htmlFor="terreno">Terreno</label>
+                    <label >Tipo de inmueble </label>
+                    <input id="propType" type="text" list="propTypes" className="apf-i" />
+                    <datalist id="propTypes">
+                      <option value="Casa">Casa</option>
+                      <option value="Terreno">Terreno</option>
+                      <option value="Local">Local</option>
+                      <option value="Departamento">Departamento</option>
+                    </datalist>
                   </div>
 
                   <div className="apf-i-cont">
-                    <label htmlFor="tipoContrato">Giro: </label>
-                    <br />
-                    <input type="radio" name='tipoContrato' value='Venta' id='venta' />
-                    <label htmlFor="venta">Venta</label>
-                    <br />
-                    <input type="radio" name='tipoContrato' value='Renta' id="renta" />
-                    <label htmlFor="renta">Renta</label>
+
+                    <label >Giro </label>
+                    <input id="propSpin" type="text" list="spin" className="apf-i" />
+                    <datalist id="spin">
+                      <option value="Venta">Venta</option>
+                      <option value="Renta">Renta</option>
+                    </datalist>
 
                   </div>
 
@@ -132,7 +147,8 @@ export const AddProp = () => {
 
                 <div className="map-img">
                   <div className="apf-map">
-
+                    <input type="num" name='lat' placeholder='latitud' />
+                    <input type="num" name='alt' placeholder='altitud' />
                   </div>
 
                   <div className="apf-img">

@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './pf.css'
 
+import { editUser } from '../../../../redux/actions/users/editUser';
+
 export const PerfilForm = () => {
   
   const dispatch = useDispatch();
@@ -16,6 +18,8 @@ export const PerfilForm = () => {
 
       }
 
+      console.log(userInfo);
+      dispatch(editUser(userInfo));
 
   }
 
@@ -25,7 +29,10 @@ export const PerfilForm = () => {
       
       <div className="card-header"><h6>Editar informacion</h6></div>
 
-      <form action="" className='pf card'>
+      <form action="" className='pf card' onSubmit={(e) =>{
+            e.preventDefault();
+            handleEditUser(e);
+          }}>
 
         <div className="pf-names">
 
@@ -59,7 +66,7 @@ export const PerfilForm = () => {
         </div>
 
         <div className="pf-submit">
-          <input type="submit" value='Confirmar' className='pf-submit-btn'/>
+          <input type="submit" value='Confirmar' className='pf-submit-btn' />
         </div>
 
 

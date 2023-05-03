@@ -7,6 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../atoms/navBar/NavBar'
 
 import './rentalview.css';
+import {FaBath} from 'react-icons/fa';
+
+
+
+
 
 export const RentalView = () => {
 

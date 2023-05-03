@@ -6,6 +6,7 @@ const combineReducer = combineReducers({
         users: UsersReducer,
         properties: PropertiesReducer,
         
+        
 });
 
 const rootReducer = (state,action) =>{
