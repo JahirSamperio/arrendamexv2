@@ -1,11 +1,13 @@
 import React, { useState,useEffect } from 'react'
 import './property.css';
 
-
+import {useNavigate} from 'react-router-dom';
 import { DashboardNav } from '../dashboard_navBar/DashboardNav'
 import { useDispatch, useSelector } from 'react-redux';
 import { newProp } from '../../../../redux/actions/properties/newProp';
 import { useNavigate } from 'react-router-dom';
+import {newProp} from '../../../../redux/actions/properties/newProp'
+
 
 export const AddProp = () => {
 
@@ -19,28 +21,30 @@ export const AddProp = () => {
   const dispatch = useDispatch();
 
 
+
   const handleUploadProperty = (data) => {
 
     const formData = {
-      propName: data.target.nombreInmueble.value,
-      propDesc: data.target.descripcion.value,
-      propType: data.target.propType.value,
-      propSpin: data.target.propSpin.value,
-      propPrice: data.target.precioInmueble.value,
-      propImg: data.target.inmuebleImagen.value,
-      // propArrendador: localStorage.getItem()
-      propState: data.target.inmuebleEstado.value,
-      propCity: data.target.inmuebleMunicipio.value,
-      propCol: data.target.inmuebleColonia.value,
-      propLat: data.target.lat.value,
-      propAlt: data.target.alt.value,
-      propImg: data.target.inmuebleImagen.value,
-      propSur: data.target.superficieT.value,
-      propBuilt: data.target.superficieC.value,
-      propAge: data.target.inmuebleAntiguedad.value,
-      propRooms: data.target.inmuebleRecamaras.value,
-      propParkS: data.target.inmuebleParkings.value,
+      nombre: data.target.nombreInmueble.value,
+      descripcion: data.target.descripcion.value,
+      tipoInmueble: data.target.propType.value,
+      renta_venta: data.target.propSpin.value,
+      precio: data.target.precioInmueble.value,
+      pathImage: data.target.inmuebleImagen.value,
+      estado: data.target.inmuebleEstado.value,
+      municipio: data.target.inmuebleMunicipio.value,
+      colonia: data.target.inmuebleColonia.value,
+      latitud: data.target.lat.value,
+      longitud: data.target.lon.value,
+      superficie_total: data.target.superficieT.value,
+      antiguedad: data.target.inmuebleAntiguedad.value,
+      num_baños: data.target.inmuebleBanos.value,
+      num_recamaras: data.target.inmuebleRecamaras.value,
+      num_estacionamientos: data.target.inmuebleParking.value,
+      superficie_construida: data.target.superficieC.value,
+      id_arrendador: localStorage.getItem('id'),
     }
+
 
     dispatch(newProp(formData));
 
@@ -100,7 +104,7 @@ export const AddProp = () => {
                 <div className="radios-cont">
                   <div className="apf-i-cont">
                     <label >Tipo de inmueble </label>
-                    <input id="propType" type="text" list="propTypes" className="apf-i" />
+                    <input id="propType" name='propType' type="text" list="propTypes" className="apf-i" />
                     <datalist id="propTypes">
                       <option value="Casa">Casa</option>
                       <option value="Terreno">Terreno</option>
@@ -112,7 +116,7 @@ export const AddProp = () => {
                   <div className="apf-i-cont">
 
                     <label >Giro </label>
-                    <input id="propSpin" type="text" list="spin" className="apf-i" />
+                    <input id="propSpin" name='propSpin' type="text" list="spin" className="apf-i" />
                     <datalist id="spin">
                       <option value="Venta">Venta</option>
                       <option value="Renta">Renta</option>
@@ -150,7 +154,7 @@ export const AddProp = () => {
                 <div className="map-img">
                   <div className="apf-map">
                     <input type="num" name='lat' placeholder='latitud' />
-                    <input type="num" name='alt' placeholder='altitud' />
+                    <input type="num" name='lon' placeholder='longitud' />
                   </div>
 
                   <div className="apf-img">

@@ -1,15 +1,15 @@
 import { combineReducers } from "redux";
 
-import { getAllPropsSlice } from "./getAllPropsSlice";
-import { getRentalViewProps } from "./getRentalViewPropsSlice";
-import { newPropSlice } from "./newPropSlice";
+import { getAllPropsSlice } from "../properties/getAllPropsSlice";
+import { getRentalViewProps } from "../properties/getRentalViewPropsSlice";
+import { newPropSlice } from "../properties/newPropSlice";
 // import { getUserInformationSlice } from "./informationUserSlice";
 // import { editUserSlice } from "./editUserSlice";
 
 
-export * from './getAllPropsSlice';
-export * from './getRentalViewPropsSlice'
-export * from './newPropSlice'
+export * from '../properties/getAllPropsSlice';
+export * from '../properties/getRentalViewPropsSlice'
+export * from '../properties/newPropSlice'
 // export * from './informationUserSlice';
 // export * from './editUserSlice';
 
