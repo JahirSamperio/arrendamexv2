@@ -4,6 +4,8 @@ import './property.css';
 import {useNavigate} from 'react-router-dom';
 import { DashboardNav } from '../dashboard_navBar/DashboardNav'
 import { useDispatch, useSelector } from 'react-redux';
+import { newProp } from '../../../../redux/actions/properties/newProp';
+import { useNavigate } from 'react-router-dom';
 import {newProp} from '../../../../redux/actions/properties/newProp'
 
 
@@ -15,8 +17,9 @@ export const AddProp = () => {
     console.log(propData);
   }, [propData])
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
 
   const handleUploadProperty = (data) => {

@@ -16,8 +16,9 @@ const {
 const cloudinary = require("cloudinary").v2;
 cloudinary.config(process.env.CLOUDINARY_URL);
 
-const newInmuebleService = async (data, id_usuario) => {
+const newInmuebleService = async (data) => {
     const {fileImage} = data.files;
+    let { id_arrendador } = data.body;
     try{
         const { secure_url } = await cloudinary.uploader.upload(
             fileImage.tempFilePath
@@ -25,9 +26,8 @@ const newInmuebleService = async (data, id_usuario) => {
         data.body.pathImage = secure_url;
         
         //Busco el id de arrendador de acuerdo al id_usuario 
-        let id_objeto = await getArrendadorIdModel(id_usuario);
+        let id_objeto = await getArrendadorIdModel(id_arrendador);
         const { id } = id_objeto[0];
-        data.body.id_arrendador = id;
 
         //Envio los datos 
         let response = await newInmuebleModel(data.body);        
