@@ -22,6 +22,8 @@ app.use('/fechas' , require('./fechas/fechas'));
 
 app.use('/citas' , require('./citas/citas'));
 
+app.use('/arrendamientos', require('./arrendamientos/arrendamientos'));
+
 //*******************Paypal******************** */
 
 app.post('/create-payment', createPayment);

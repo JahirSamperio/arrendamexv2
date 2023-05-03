@@ -10,7 +10,8 @@ const {
     getInmuebleByArrendadorService,
     editInmuebleService,
     getInmueblesLengthService,
-    getArrendatariosLengthService
+    getArrendatariosLengthService,
+    getProfileInfoService
 } = require('../../services/inmuebles/inmuebles');
 
 const getInmuebleByIdController = async (req, res) => {
@@ -61,9 +62,10 @@ const getInmuebleByNameController = async (req, res) => {
 }
 
 const newInmuebleController = async (req = request, res) => {
+    const { id_usuario } = req.query;
     const { nombre, descripcion, tipoInmueble, renta_venta, precio} = req.body;
     try {
-        let response = await newInmuebleService(req);
+        let response = await newInmuebleService(req, id_usuario);
         
         return res.status(200).json({
             response
@@ -191,6 +193,22 @@ const getInmueblesLengthController = async (req, res) => {
     }
 }
 
+const getProfileInfoController = async (req, res) => {
+    const { id_inmueble } = req.query;
+    try {
+        let response = await getProfileInfoService(id_inmueble);
+        
+        return res.status(200).json({
+            response
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            msg: 'Information could not get'
+        })
+    }
+}
+
 module.exports = {
     getInmuebleByIdController,
     getInmuebleByNameController,
@@ -202,5 +220,6 @@ module.exports = {
     getInmuebleByArrendadorController,
     editInmuebleController,
     getInmueblesLengthController,
-    getArrendatariosLengthController
+    getArrendatariosLengthController,
+    getProfileInfoController
 }
