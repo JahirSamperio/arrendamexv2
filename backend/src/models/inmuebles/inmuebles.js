@@ -66,12 +66,12 @@ function searchInmuebleByRentaModel(renta_venta) {
 }
 
 //Inserta nuevo inmueble
-function newInmuebleModel(data) {
-    const {nombre, descripcion, tipoInmueble, id_arrendador, renta_venta, precio, precio_por_mes, pathImage} = data;
+function newInmuebleModel(data, id_arrendador) {
+    const {nombre, descripcion, tipoInmueble,  renta_venta, precio, pathImage, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_baños, num_recamaras, num_estacionamientos, superficie_construida } = data;
     return new Promise((resolve, reject) => {
         conexion.query(
-            `INSERT INTO inmuebles(nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage)
-            VALUES ('${nombre}', '${descripcion}', '${tipoInmueble}', '${renta_venta}', '${precio}', '${pathImage}')`,
+            `INSERT INTO inmuebles(nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage, id_arrendador, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_baños, num_recamaras, num_estacionamientos, superficie_construida)
+            VALUES ('${nombre}', '${descripcion}', '${tipoInmueble}', '${renta_venta}', '${precio}', '${pathImage}', '${id_arrendador}', '${estado}', '${municipio}', '${colonia}', '${latitud}', '${longitud}', '${superficie_total}', '${antiguedad}', '${num_baños}','${num_recamaras}', '${num_estacionamientos}', '${superficie_construida}')`,
             function (error, result, field) {
                 if (error) 
                     return reject(error);
@@ -81,11 +81,12 @@ function newInmuebleModel(data) {
 }
 //Editar inmueble
 function editInmuebleModel(data, id_inmueble) {
-    const {nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage, id_arrendador} = data;
+    const {nombre, descripcion, tipoInmueble, renta_venta, precio, pathImage, id_arrendador, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_baños, num_recamaras, num_estacionamientos, superficie_construida} = data;
     return new Promise((resolve, reject) => {
         conexion.query(
             `UPDATE inmuebles
-            SET nombre = '${nombre}', descripcion = '${descripcion}', tipoInmueble = '${tipoInmueble}', renta_venta = '${renta_venta}', precio = '${precio}', pathImage = '${pathImage}', id_arrendador = '${id_arrendador}'
+            SET nombre = '${nombre}', descripcion = '${descripcion}', tipoInmueble = '${tipoInmueble}', renta_venta = '${renta_venta}', precio = '${precio}', pathImage = '${pathImage}', id_arrendador = '${id_arrendador}',
+            estado = '${estado}', municipio = '${municipio}', colonia = '${colonia}', latitud = '${latitud}', longitud = '${longitud}', superficie_total = '${superficie_total}', antiguedad = '${antiguedad}', num_baños = '${num_baños}', num_recamaras = '${num_recamaras}', num_estacionamientos = '${num_estacionamientos}', superficie_construida = '${superficie_construida}'
             WHERE inmuebles.id = '${id_inmueble}'`,
             function (error, result, field) {
                 if (error) 
@@ -156,6 +157,39 @@ function getInmuebleByArrendadorModel(id_usuario) {
     })
 }
 
+//Perfil del inmueble
+function getProfileInfoModel(id_inmueble) {
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `SELECT * FROM inmuebles
+            WHERE id = '${id_inmueble}'`,
+            function (error, result, field) {
+                if (error) 
+                    return reject(error);
+                return resolve(result);
+            })
+            
+    })
+}
+
+//Obtener id del arrendador para insertar en nuevo inmueble
+function getArrendadorIdModel(id_usuario) {
+    return new Promise((resolve, reject) => {
+        conexion.query(
+            `SELECT arrendador.id
+            FROM arrendador
+            JOIN usuarios
+            ON usuarios.id = arrendador.id_usuario
+            WHERE usuarios.id = '${id_usuario}'`,
+            function (error, result, field) {
+                if (error) 
+                    return reject(error);
+                return resolve(result);
+            })
+            
+    })
+}
+
 
 module.exports = {
     getInmuebleByIdModel,
@@ -166,5 +200,7 @@ module.exports = {
     getAllInmueblesModel,
     getArrendatariosModel,
     getInmuebleByArrendadorModel,
-    editInmuebleModel
+    editInmuebleModel,
+    getProfileInfoModel,
+    getArrendadorIdModel
 }

@@ -5,7 +5,7 @@ export const PerfilForm = () => {
   
   const dispatch = useDispatch();
 
-  const {loading,success, error, dataUserEdit} = useSelector((state) => state.user.edit);
+  const {loading,success, error, dataUserEdit} = useSelector((state) => state.users.edit);
 
   const handleEditUser = (data) =>{
 

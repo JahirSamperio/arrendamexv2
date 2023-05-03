@@ -7,21 +7,29 @@ const {
     getAllInmueblesModel,
     getArrendatariosModel,
     getInmuebleByArrendadorModel,
-    editInmuebleModel
+    editInmuebleModel,
+    getProfileInfoModel,
+    getArrendadorIdModel
 } = require('../../models/inmuebles/inmuebles');
 
 //cloudinary
 const cloudinary = require("cloudinary").v2;
 cloudinary.config(process.env.CLOUDINARY_URL);
 
-const newInmuebleService = async (data) => {
+const newInmuebleService = async (data, id_usuario) => {
     const {fileImage} = data.files;
     try{
         const { secure_url } = await cloudinary.uploader.upload(
             fileImage.tempFilePath
         );
         data.body.pathImage = secure_url;
-        let response = await newInmuebleModel(data.body);        
+        
+        //Busco el id de arrendador de acuerdo al id_usuario 
+        let id_objeto = await getArrendadorIdModel(id_usuario);
+        const { id } = id_objeto[0];
+
+        //Envio los datos 
+        let response = await newInmuebleModel(data.body, id);        
         return response;
     } catch(error){
         return error;
@@ -129,6 +137,15 @@ const getInmueblesLengthService = async (id_usuario) => {
     } 
 }
 
+const getProfileInfoService = async (id_inmueble) => {
+    try{
+        let response = await getProfileInfoModel(id_inmueble);        
+        return response;
+    } catch(error){
+        return error;
+    } 
+}
+
 module.exports = {
     getInmuebleByIdService,
     getInmuebleByNameService,
@@ -140,5 +157,6 @@ module.exports = {
     getInmuebleByArrendadorService,
     editInmuebleService,
     getInmueblesLengthService,
-    getArrendatariosLengthService
+    getArrendatariosLengthService,
+    getProfileInfoService
 }

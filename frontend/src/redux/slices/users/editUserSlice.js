@@ -7,7 +7,7 @@ const initialState = {
     dataUserEdit: []
 };
 
-export const loginUserSlice = createSlice({
+export const editUserSlice = createSlice({
     name: 'editUserSlice',
     initialState,
     reducers: {
