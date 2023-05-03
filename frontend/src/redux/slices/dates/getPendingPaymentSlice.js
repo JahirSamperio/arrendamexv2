@@ -4,25 +4,25 @@ const initialState = {
     loading: false,
     error: null,
     success: false,
-    rentalViewData: []
+    pendingPaymentData: []
 };
 
-export const getRentalViewProps = createSlice({
-    name: 'getRentalViewProps',
+export const getPendingPaymentSlice = createSlice({
+    name: 'getPendingPaymentSlice',
     initialState,
     reducers: {
-        fetchGetRentalViewProp: (state, action) => {
+        fetchGetPendingPayment: (state, action) => {
             state.loading = true;
             state.error = null;
             state.success = null;
         },
-        fetchGetRentalViewPropSuccess: (state, action) => {
+        fetchGetPendingPaymentSuccess: (state, action) => {
             state.loading = null,
                 state.error = null,
                 state.success = true;
-            state.rentalViewData = action.payload;
+            state.pendingPaymentData = action.payload;
         },
-        fetchGetRentalViewPropFailure: (state, action) => {
+        fetchGetPendingPaymentFailure: (state, action) => {
             state.error = action.payload;
             state.loading = false;
             state.success = false;
@@ -31,7 +31,5 @@ export const getRentalViewProps = createSlice({
 });
 
 export const {
-    fetchGetRentalViewProp,
-    fetchGetRentalViewPropFailure,
-    fetchGetRentalViewPropSuccess
-} = getRentalViewProps.actions;
+   fetchGetPendingPayment,fetchGetPendingPaymentFailure,fetchGetPendingPaymentSuccess
+} = getPendingPaymentSlice.actions;

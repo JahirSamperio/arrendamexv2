@@ -21,9 +21,9 @@ export const RentalView = ({}) => {
 
   console.log(id);
   
-  const {rentalViewData}  = useSelector((state) => state.properties.getById);
+  const {rentalViewData,success}  = useSelector((state) => state.properties.getById);
 
-  const { id_propertie,nombre,descripcion,tipoInmueble,id_arrendador,rv,precio, estado,municipio,colonia,latitud,longitud,superficie_total
+  const { nombre,descripcion,tipoInmueble,id_arrendador,rv,precio, estado,municipio,colonia,latitud,longitud,superficie_total
     ,antiguedad,num_recamaras,num_estacionamientos,superficie_construida,pathImage } = rentalViewData;
 
 
@@ -43,7 +43,7 @@ export const RentalView = ({}) => {
       <NavBar />
 
       <div className="rental-view">
-        <div className="rental-view-header"><h2>{}</h2></div>
+        <div className="rental-view-header"><h2>{nombre}</h2></div>
  
         <div className="rental-view-content">
 
@@ -55,7 +55,9 @@ export const RentalView = ({}) => {
             <div className="rental-view-desc">
               <div className="rv-info-h6"><h6>{descripcion}</h6></div>
 
-              <p></p>
+              <p>
+                
+              </p>
 
             </div>
 

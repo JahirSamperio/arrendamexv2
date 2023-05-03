@@ -4,25 +4,25 @@ const initialState = {
     loading: false,
     error: null,
     success: false,
-    rentalViewData: []
+    pendingAppointmentData: []
 };
 
-export const getRentalViewProps = createSlice({
-    name: 'getRentalViewProps',
+export const pendingAppointmentsSlice = createSlice({
+    name: 'pendingAppointmentsSlice',
     initialState,
     reducers: {
-        fetchGetRentalViewProp: (state, action) => {
+        fetchGetPendingAppointments: (state, action) => {
             state.loading = true;
             state.error = null;
             state.success = null;
         },
-        fetchGetRentalViewPropSuccess: (state, action) => {
+        fetchGetPendingAppointmentsSuccess: (state, action) => {
             state.loading = null,
                 state.error = null,
                 state.success = true;
-            state.rentalViewData = action.payload;
+            state.pendingAppointmentData = action.payload;
         },
-        fetchGetRentalViewPropFailure: (state, action) => {
+        fetchGetPendingAppointmentsFailure: (state, action) => {
             state.error = action.payload;
             state.loading = false;
             state.success = false;
@@ -31,7 +31,5 @@ export const getRentalViewProps = createSlice({
 });
 
 export const {
-    fetchGetRentalViewProp,
-    fetchGetRentalViewPropFailure,
-    fetchGetRentalViewPropSuccess
-} = getRentalViewProps.actions;
+    fetchGetPendingAppointments,fetchGetPendingAppointmentsFailure,fetchGetPendingAppointmentsSuccess
+} =pendingAppointmentsSlice.actions;
