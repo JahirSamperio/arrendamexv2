@@ -31,7 +31,7 @@ export const newPropSlice = createSlice({
 });
 
 export const {
+    fetchNewPropSuccess,
     fetchNewProp,
-    fetchNewPropFailure,
-    fetchNewPropSuccess
+    fetchNewPropFailure
 } = newPropSlice.actions;
