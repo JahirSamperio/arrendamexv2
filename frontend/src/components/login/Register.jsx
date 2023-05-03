@@ -10,8 +10,7 @@ export function Register  () {
     const dispatch = useDispatch();
     const navigate = useNavigate();
    
-    const {loading,success,error,userData
-    } = useSelector((state) => state.users.new);
+    const {loading,success,error,userData } = useSelector((state) => state.users.new);
 
     
     useEffect(() =>{

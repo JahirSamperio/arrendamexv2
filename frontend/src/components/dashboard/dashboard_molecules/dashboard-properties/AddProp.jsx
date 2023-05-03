@@ -1,36 +1,33 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './property.css';
 
-import {useNavigate} from 'react-router-dom';
 import { DashboardNav } from '../dashboard_navBar/DashboardNav'
 import { useDispatch, useSelector } from 'react-redux';
 import { newProp } from '../../../../redux/actions/properties/newProp';
 import { useNavigate } from 'react-router-dom';
-import {newProp} from '../../../../redux/actions/properties/newProp'
 
 
 export const AddProp = () => {
 
-  const { loading, success, error, propData } = useSelector((state) => state.properties.newProp);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { loading, success, error, propData } = useSelector((state) => state.properties.new);
 
   useEffect(() => {
     console.log(propData);
   }, [propData])
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-
 
   const handleUploadProperty = (data) => {
 
-    const formData = {
+    const propertyData = {
       nombre: data.target.nombreInmueble.value,
       descripcion: data.target.descripcion.value,
       tipoInmueble: data.target.propType.value,
       renta_venta: data.target.propSpin.value,
       precio: data.target.precioInmueble.value,
-      pathImage: data.target.inmuebleImagen.value,
+      id_arrendador: localStorage.getItem('id'),
       estado: data.target.inmuebleEstado.value,
       municipio: data.target.inmuebleMunicipio.value,
       colonia: data.target.inmuebleColonia.value,
@@ -38,24 +35,26 @@ export const AddProp = () => {
       longitud: data.target.lon.value,
       superficie_total: data.target.superficieT.value,
       antiguedad: data.target.inmuebleAntiguedad.value,
-      num_baños: data.target.inmuebleBanos.value,
       num_recamaras: data.target.inmuebleRecamaras.value,
       num_estacionamientos: data.target.inmuebleParking.value,
       superficie_construida: data.target.superficieC.value,
-      id_arrendador: localStorage.getItem('id'),
+      pathImage: data.target.inmuebleImagen.value,
+
     }
 
 
-    dispatch(newProp(formData));
+    dispatch(newProp(propertyData));
 
 
   }
 
   useEffect(() => {
 
-    if (success) {
+    if (success == true) {
       alert('Inmueble agregado');
       navigate('/Dashboard');
+    } else if (error == true) {
+      alert('Error al agregar inmueble')
     }
 
   }, [success])
