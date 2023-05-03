@@ -5,7 +5,7 @@ import './property.css';
 import { DashboardNav } from '../dashboard_navBar/DashboardNav'
 import { useDispatch, useSelector } from 'react-redux';
 import { newProp } from '../../../../redux/actions/properties/newProp';
-
+import { useNavigate } from 'react-router-dom';
 
 export const AddProp = () => {
 
@@ -15,6 +15,7 @@ export const AddProp = () => {
     console.log(propData);
   }, [propData])
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
 
@@ -26,6 +27,8 @@ export const AddProp = () => {
       propType: data.target.propType.value,
       propSpin: data.target.propSpin.value,
       propPrice: data.target.precioInmueble.value,
+      propImg: data.target.inmuebleImagen.value,
+      // propArrendador: localStorage.getItem()
       propState: data.target.inmuebleEstado.value,
       propCity: data.target.inmuebleMunicipio.value,
       propCol: data.target.inmuebleColonia.value,
@@ -35,7 +38,6 @@ export const AddProp = () => {
       propSur: data.target.superficieT.value,
       propBuilt: data.target.superficieC.value,
       propAge: data.target.inmuebleAntiguedad.value,
-      propBaths: data.target.inmuebleBanos.value,
       propRooms: data.target.inmuebleRecamaras.value,
       propParkS: data.target.inmuebleParkings.value,
     }

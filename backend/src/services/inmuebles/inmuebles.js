@@ -27,9 +27,10 @@ const newInmuebleService = async (data, id_usuario) => {
         //Busco el id de arrendador de acuerdo al id_usuario 
         let id_objeto = await getArrendadorIdModel(id_usuario);
         const { id } = id_objeto[0];
+        data.body.id_arrendador = id;
 
         //Envio los datos 
-        let response = await newInmuebleModel(data.body, id);        
+        let response = await newInmuebleModel(data.body);        
         return response;
     } catch(error){
         return error;
