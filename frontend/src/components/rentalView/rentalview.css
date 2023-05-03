@@ -4,7 +4,7 @@
     align-items: center;
 }
 .rental-view{
-    background-color: rgb(97, 128, 45);
+    background-color: rgb(217, 217, 217);
     height: 75em;
     width: 90em;
     margin: 5em  2em;
@@ -19,7 +19,7 @@
 }
 
 .rental-view-header{
-    color: aliceblue;
+    color: rgb(31, 31, 31);
 }
 
 .rental-view-desc{
@@ -29,6 +29,16 @@
 .rental-view-img{
     margin-top: 2em;
     height: 25em;
+    width: 35;
+    background-color: aliceblue;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rental-view-img-{
+    height: 22em;
     width: 35;
     background-color: aliceblue;
     border-radius: 8px;
@@ -45,7 +55,7 @@
     padding: 2em  1em;
     background-color: aliceblue;
     border-radius: 10px;
-    height: 25em;
+    height: max-content;
 }
 
 
@@ -73,7 +83,7 @@
 }
 
 .rv-form-cont{
-    background-color: #212121;
+    background-color: #3f3f3f;
     border-radius: 8px;
 }
 
@@ -101,6 +111,7 @@
 .rvch{
     padding-left: 10px;
     padding-top: 10px;
+    color: #f5f3f3;
 }
 
 .rental-view-info{

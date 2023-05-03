@@ -17,6 +17,15 @@
     transition:  transform .5s;
 }
 
+.item_img-img{
+    background-color: aliceblue;
+    height: 18em;
+    width: 16em;
+    border-radius: 6px;
+    margin: auto;
+    position: relative;
+}
+
 .item_img{
     background-color: aliceblue;
     height: 18em;

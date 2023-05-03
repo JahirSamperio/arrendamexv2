@@ -20,7 +20,7 @@ export const getLastPaymentSlice = createSlice({
             state.loading = null,
                 state.error = null,
                 state.success = true;
-            state.dateData = action.payload;
+            state.lastPaymentData = action.payload;
         },
         fetchGetLastPaymentsFailure: (state, action) => {
             state.error = action.payload;

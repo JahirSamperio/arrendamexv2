@@ -51,6 +51,7 @@ const Home = () => {
                                 ubicacion={element.municipio}
                                 superficie={element.superficie_total}
                                 vr={element.renta_venta}
+                                imagen={element.pathImage}
                             />
                         </div>
 
