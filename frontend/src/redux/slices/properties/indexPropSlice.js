@@ -16,7 +16,7 @@ export * from '../properties/newPropSlice'
 export const PropertiesReducer = combineReducers({
     getAll: getAllPropsSlice.reducer,
     getById: getRentalViewProps.reducer,
-    newProp: newPropSlice.reducer
+    new: newPropSlice.reducer
     // edit: editUserSlice.reducer,
     // information: getUserInformationSlice.reducer
 });

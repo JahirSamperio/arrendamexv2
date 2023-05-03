@@ -5,15 +5,14 @@ import { fetchNewProp,fetchNewPropFailure,fetchNewPropSuccess } from '../../slic
 export const newProp = (datosPropiedad) => async (dispatch) => {
 
     console.log(datosPropiedad);
-    const userID = localStorage.getItem('id');
 
     try {
         dispatch(fetchNewProp());
-        const {data} = await axios.post(`http://localhost:3000/inmueble/newInmueble?id_usuario=${userID}`, datosPropiedad);
-        console.log(data.response);
+        const response = await axios.post(`http://localhost:3000/inmueble/newInmueble`, datosPropiedad);
+        console.log(response.data);
         dispatch(fetchNewPropSuccess(data.response));
     } catch (error) {
-        dispatch(fetchNewPropFailure(error));
+        dispatch(fetchNewPropFailure('error al agregar '));
     }
 
 }
