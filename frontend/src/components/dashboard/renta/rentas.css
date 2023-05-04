@@ -1,0 +1,22 @@
+.boton-pago{
+    padding-left: .7em;
+    color: rgb(41, 85, 197);
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 4em;
+    font-size: 5em;
+    cursor: pointer;
+}
+
+.btn-pago-icon{
+    width: 4em;
+}
+.btn-pago-cont{
+    height: fit-content;
+    width: fit-content;
+}
+
+.rentals{
+    height: 25em;
+    width: 60em;
+}

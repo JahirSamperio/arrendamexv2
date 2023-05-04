@@ -108,6 +108,7 @@ thead, tbody, tfoot, tr, td, th {
 .table-responsive {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    width: 700px;
 }
 
 table {
@@ -180,4 +181,24 @@ h6, .h6, .h6 {
 }
 .mb-0 {
     margin-bottom: 0 !important;
+}
+
+
+.tbody-cont{
+    overflow: auto;
+}
+
+.lpti{
+    width: 680x;
+}
+
+.lpti-tr{
+    width: 660px;
+    display: flex;
+    justify-content:space-between;
+}
+
+.lpti-container{
+    display: flex;
+
 }
