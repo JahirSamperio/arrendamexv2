@@ -40,7 +40,6 @@ export const Rentas = () => {
               </thead>
               <tbody>
                 <RentasItem />
-                <RentasItem />
               </tbody>
             </table>
             </div>

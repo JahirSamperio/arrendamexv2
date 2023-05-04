@@ -41,10 +41,10 @@ export const CardOne = () => {
                             <div className="numbers">
                                 <p className="text-sm mb-0 text-uppercase font-weight-bold">Depósitos hoy</p>
                                 <h5 className="font-weight-bolder">
-                                    
+                                    $ 5000
                                 </h5>
                                 <p className="mb-0">
-                                    00/00/0000
+                                    2023/05/04
                                 </p>
                             </div>
                         </div>
@@ -90,7 +90,7 @@ export const CardTwo = () => {
                             <div className="numbers">
                                 <p className="text-sm mb-0 text-uppercase font-weight-bold">Pendientes</p>
                                 <h5 className="font-weight-bolder">
-                                    
+                                    2
                                 </h5>
                                 <div className="mb-0">
                                     <div className="ptm">
@@ -141,7 +141,7 @@ export const CardThree = () => {
                             <div className="numbers">
                                 <p className="text-sm mb-0 text-uppercase font-weight-bold">Citas solicitdas</p>
                                 <h5 className="font-weight-bolder">
-                                    ---
+                                    2
                                 </h5>
                                 <p className="mb-0">
                                     Esta semana <a href="tables.html" className="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto" ><i className="ni ni-bold-right" aria-hidden="true"></i></a>
@@ -171,7 +171,7 @@ export const CardFour = () => {
                             <div className="numbers">
                                 <p className="text-sm mb-0 text-uppercase font-weight-bold">Depósitos del mes</p>
                                 <h5 className="font-weight-bolder">
-                                    ---
+                                    $ 15000
                                 </h5>
                                 <p className="mb-0">
                                     Mes
