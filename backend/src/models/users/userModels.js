@@ -63,12 +63,12 @@ function deleteUserModels(id){
 
 //Edicion de la informacion del usuario
 function editUserModels(id, data){
-    const {nombre, apellidos, password, email, telefono} = data;
+    const {nombre, apellidos, password, email, telefono, direccion} = data;
     
     return new Promise((resolve, reject) => {
         conexion.query(
             `UPDATE usuarios 
-            SET nombre = '${nombre}', apellidos = '${apellidos}', password = '${password}', email = '${email}', telefono = '${telefono}'
+            SET nombre = '${nombre}', apellidos = '${apellidos}', password = '${password}', email = '${email}', telefono = '${telefono}', direccion = '${direccion}'
             WHERE usuarios.id = '${id}'`,
             function(error, result, field){
                 if(error) 
