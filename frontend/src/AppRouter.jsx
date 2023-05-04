@@ -11,7 +11,7 @@ import { Perfil } from "./components/dashboard/perfil/Perfil";
 import { AddProp } from "./components/dashboard/dashboard_molecules/dashboard-properties/AddProp";
 import { AddContract } from "./components/dashboard/dashboard_molecules/dashboard-addContract/AddContract";
 import { RentalView } from "./components/rentalView/RentalView";
-
+import { PagoCompletado } from "./components/pago/PagoCompletado";
 
 
 function AppRouter() {
@@ -34,6 +34,7 @@ function AppRouter() {
       <Route path="/AddProperty" element={<AddProp/>}/>
       <Route path="/AddContract" element={<AddContract/>}/>
       <Route path="/Propertie/:id_propertie" element={<RentalView/>}/>
+      <Route path="/pago-completado" element={<PagoCompletado/>} />
     </Routes>
 
 

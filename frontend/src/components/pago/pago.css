@@ -1,0 +1,40 @@
+
+
+.pago-cont{
+    height: 100vh;
+    background-color: rgb(55, 55, 55);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+.pago-link{
+    
+    font-size: 2em;
+    margin-left: 35em;
+    text-decoration: none;
+    background-color: #3f56b4;
+    color: azure;
+    padding:  .2em;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.pago-h2{
+    font-size: 5em;
+
+}
+
+.ai-pago{
+    color: #3ba82a;
+    font-size: 2em;
+}
+
+.pago-info{
+    background-color: rgb(243, 239, 239);
+    height: fit-content;
+    width:fit-content ;
+    border-radius: 12px;
+    padding: 1em 1.5em;
+}
