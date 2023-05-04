@@ -20,7 +20,7 @@ function getCitaModel(id_usuarios) {
     return new Promise((resolve, reject) => {
         conexion.query(
             `SELECT usuarios_arrendatarios.nombre as nombreUsuario, usuarios_arrendatarios.apellidos, citas_solicitadas.fecha,
-            citas_solicitadas.hora, inmuebles.nombre, citas_solicitadas.id_inmueble, citas_solicitadas.id_usuario 
+            citas_solicitadas.hora, inmuebles.nombre, citas_solicitadas.id_inmueble, citas_solicitadas.id_usuario, citas_solicitadas.id 
             FROM citas_solicitadas
             JOIN usuarios 
             AS usuarios_arrendatarios
