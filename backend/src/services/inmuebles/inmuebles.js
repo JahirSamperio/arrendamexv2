@@ -24,7 +24,6 @@ const newInmuebleService = async (data) => {
             fileImage.tempFilePath
         );
         data.body.pathImage = secure_url;
-        console.log(secure_url);
         
         //Busco el id de arrendador de acuerdo al id_usuario 
         let id_objeto = await getArrendadorIdModel(id_arrendador);

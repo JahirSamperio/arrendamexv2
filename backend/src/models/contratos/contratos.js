@@ -2,11 +2,11 @@ const {conexion} = require('../../db/config');
 
 //Crear contrato
 function newContractModel(data) {
-    const {id_arrendador, fecha_pago, total, id_inmueble, id_arrendado} = data;
+    const {fecha_pago, total, id_inmueble, id_usuario, metodo_pago, contrato_digital} = data;
     return new Promise((resolve, reject) => {
         conexion.query(
-            `INSERT INTO contratos(id_arrendador, fecha_pago, total, id_inmueble, id_arrendado)
-            VALUES ('${id_arrendador}', '${fecha_pago}', '${total}', '${id_inmueble}', '${id_arrendado}')`,
+            `INSERT INTO contratos(fecha_pago, total, id_inmueble, id_usuario, metodo_pago, contrato_digital)
+            VALUES ('${fecha_pago}', '${total}', '${id_inmueble}', '${id_usuario}', '${metodo_pago}', '${contrato_digital}')`,
             function (error, result, field) {
                 if (error) 
                     return reject(error);
