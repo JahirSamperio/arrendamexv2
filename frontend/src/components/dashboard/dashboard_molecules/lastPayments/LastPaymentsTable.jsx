@@ -39,17 +39,17 @@ export const LastPaymentsTable = () => {
 
                   return (
                     <>
-                      <div key={index}>
-                        <LastPayTI className="lpti"
+                      
+                        <LastPayTI key={index} className="lpti"
 
 
                           name={element.nombreUsuario}
                           apellidos={element.apellidos}
                           date={element.fecha}
-                          amount={element.total}
+                          amount={`$${element.total}`}
                           property={element.nombre}
                         />
-                      </div>
+                      
                     </>
                   )
 

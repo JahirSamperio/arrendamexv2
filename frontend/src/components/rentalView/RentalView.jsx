@@ -7,35 +7,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../atoms/navBar/NavBar'
 
 import './rentalview.css';
-import {FaBath} from 'react-icons/fa';
-import {BsTextarea} from 'react-icons/bs'
-import {MdBedroomChild,MdMonetizationOn} from 'react-icons/md'
-import {AiFillCar} from 'react-icons/ai'
+import { FaBath } from 'react-icons/fa';
+import { BsTextarea } from 'react-icons/bs'
+import { MdBedroomChild, MdMonetizationOn } from 'react-icons/md'
+import { AiFillCar } from 'react-icons/ai'
 
 
-export const RentalView = ({}) => {
+export const RentalView = ({ }) => {
 
   const dispatch = useDispatch();
 
-  const { id_propertie:id } = useParams();
+  const { id_propertie } = useParams();
 
-  console.log(id);
-  
-  const {rentalViewData,success}  = useSelector((state) => state.properties.getById);
+  console.log(id_propertie);
 
-  const { nombre,descripcion,tipoInmueble,id_arrendador,renta_venta,precio, estado,municipio,colonia,latitud,longitud,superficie_total
-    ,antiguedad,num_recamaras,num_estacionamientos,superficie_construida,pathImage } = rentalViewData[0];
+  const { rentalViewData, success } = useSelector((state) => state.properties.getById);
+
+
+  const { nombre, descripcion, tipoInmueble, id_arrendador, renta_venta, precio, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_recamaras, num_estacionamientos, superficie_construida, pathImage } = rentalViewData[0];
 
 
   useEffect(() => {
-    dispatch(getRentalView(id));
+    dispatch(getRentalView(id_propertie));
   }, [])
 
   useEffect(() => {
     console.log(rentalViewData);
   }, [rentalViewData])
 
-    
 
   return (
 
@@ -44,12 +43,12 @@ export const RentalView = ({}) => {
 
       <div className="rental-view">
         <div className="rental-view-header"><h2>{nombre}</h2></div>
- 
+
         <div className="rental-view-content">
 
           <div className="rental-view-col1">
             <div className="rental-view-img">
-                <img src={pathImage} alt=""  className='rental-view-img-'/>
+              <img src={pathImage} alt="" className='rental-view-img-' />
             </div>
 
             <div className="rental-view-desc">
@@ -62,7 +61,7 @@ export const RentalView = ({}) => {
             </div>
 
             <div className="rental-view-map-cont">
-                <div className="card-header" style={{padding:'10px'}}><h6>Ubicacion</h6></div>
+              <div className="card-header" style={{ padding: '10px' }}><h6>Ubicacion</h6></div>
 
             </div>
           </div>
@@ -75,12 +74,12 @@ export const RentalView = ({}) => {
 
             <div className="rental-view-info">
               <p className='rv-info-p'>Tipo de inmueble: <span className="rv-info-s">{tipoInmueble}</span></p>
-              <p className='rv-info-p'>Tipo de contrato: <span className="rv-info-s" style={{textTransform:'uppercase'}}>{renta_venta}</span></p>
-              <p className='rv-info-p'><BsTextarea/> <span className="rv-info-s">{superficie_total}</span></p>
-              <p className='rv-info-p' style={{fontSize:'20px'}}><MdBedroomChild/> <span className="rv-info-s">{num_recamaras}</span></p>
-              <p className='rv-info-p'><FaBath/> <span className="rv-info-s">---</span></p>
-              <p className='rv-info-p' style={{fontSize:'20px'}}><AiFillCar/> <span className="rv-info-s">{num_estacionamientos}</span></p>
-              <p className='rv-info-p' style={{fontSize:'20px'}}><span className="rv-info-s">${precio}</span></p>
+              <p className='rv-info-p'>Tipo de contrato: <span className="rv-info-s" style={{ textTransform: 'uppercase' }}>{renta_venta}</span></p>
+              <p className='rv-info-p'><BsTextarea /> <span className="rv-info-s">{superficie_total}</span></p>
+              <p className='rv-info-p' style={{ fontSize: '20px' }}><MdBedroomChild /> <span className="rv-info-s">{num_recamaras}</span></p>
+              <p className='rv-info-p'><FaBath /> <span className="rv-info-s">---</span></p>
+              <p className='rv-info-p' style={{ fontSize: '20px' }}><AiFillCar /> <span className="rv-info-s">{num_estacionamientos}</span></p>
+              <p className='rv-info-p' style={{ fontSize: '20px' }}><span className="rv-info-s">${precio}</span></p>
 
             </div>
 

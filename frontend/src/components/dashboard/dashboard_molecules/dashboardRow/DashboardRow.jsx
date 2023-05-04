@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './dashboardRow.css';
 
 import {GiReceiveMoney} from'react-icons/gi';
@@ -6,15 +6,29 @@ import {FaTasks} from 'react-icons/fa';
 import {MdEmojiPeople} from 'react-icons/md';
 import {TbCoins} from 'react-icons/tb';
 import {BsArrowRightShort} from 'react-icons/bs';
-
 import {useDispatch,useSelector} from 'react-redux';
-
-
 import { Link } from 'react-router-dom';
+
+import { getTodayPayments } from '../../../../redux/actions/dates/getTodayPayments';
 
 
 
 export const CardOne = ({depositosHoy ="",fechaHoy =""}) => {
+
+    const dispatch = useDispatch();
+    const {loanding,success,error,todayPaymentData} = useSelector((state) => state.dates.todayPayment);
+
+    const {total} = todayPaymentData[0];
+    
+    useEffect(() =>{
+        dispatch(getTodayPayments());
+    },[]);
+
+
+    useEffect(() =>{
+        console.log(todayPaymentData);
+    },[todayPaymentData])
+
     return (
         <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div className="card">
@@ -24,7 +38,7 @@ export const CardOne = ({depositosHoy ="",fechaHoy =""}) => {
                             <div className="numbers">
                                 <p className="text-sm mb-0 text-uppercase font-weight-bold">Depósitos hoy</p>
                                 <h5 className="font-weight-bolder">
-                                    ---
+                                    {total}
                                 </h5>
                                 <p className="mb-0">
                                     00/00/0000

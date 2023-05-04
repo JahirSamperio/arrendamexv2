@@ -1,50 +1,29 @@
-// import React, { useState } from 'react';
-// import {GoogleMap,withScriptjs,withGoogleMap } from 'react-google-maps';
+import React, { Component } from 'react';
+import { GoogleMap, Marker } from 'react-google-maps';
 
-// const apiKeyMaps = 'AIzaSyBhnvsjQxs4P4nU5BnR8BA71lYUgvzva44';
+class Map extends Component {
+  state = {
+    markers: [],
+  };
 
+  handleMapClick = (event) => {
+    const { latLng } = event;
+    this.setState((prevState) => ({
+      markers: [...prevState.markers, { lat: latLng.lat(), lng: latLng.lng() }],
+    }));
+  };
 
-// const Map = (props) => {
- 
-//   <GoogleMap defualtZoom = />
- 
-//   return (
-//     <div>Map</div>
-//   )
+  render() {
+    const { markers } = this.state;
 
-// }
+    return (
+      <GoogleMap onClick={this.handleMapClick}>
+        {markers.map((marker) => (
+          <Marker position={marker} />
+        ))}
+      </GoogleMap>
+    );
+  }
+}
 
-// export default withScriptjs(
-//   withGoogleMap(
-//     Map
-//   )
-// )
-
-// // export const Map = () => {
-  
-// //   
-
-// //   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
-
-// //   const handleMapClick = ({ lat, lng }) => {
-// //     setCoordinates({ lat, lng });
-// //   };
-
-
-// //   return (
-// //     <div style={{ height: '500px', width: '100%' }}>
-// //       <GoogleMapReact
-// //         bootstrapURLKeys={{ key: ' AIzaSyBXzouYLQTfWn9XcE-aKC0YPvPA56KobvQ' }}
-// //         defaultCenter={{ lat: 0, lng: 0 }}
-// //         defaultZoom={15}
-// //         onClick={handleMapClick}
-// //       >
-// //         <Marker lat={coordinates.lat} lng={coordinates.lng} />
-// //       </GoogleMapReact>
-// //     </div>
-// //   );
-// // };
-
-// // const Marker = () => <div className="marker">Marcador</div>;
-
-// // export default Map;
+export default Map;
