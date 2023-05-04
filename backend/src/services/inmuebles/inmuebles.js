@@ -17,14 +17,13 @@ const cloudinary = require("cloudinary").v2;
 cloudinary.config(process.env.CLOUDINARY_URL);
 
 const newInmuebleService = async (data) => {
-    // const {fileImage} = data.files;
+    const {fileImage} = data.files;
     let { id_arrendador } = data.body;
     try{
-        // const { secure_url } = await cloudinary.uploader.upload(
-        //     fileImage.tempFilePath
-        // );
-        // data.body.pathImage = secure_url;
-        // console.log(secure_url);
+        const { secure_url } = await cloudinary.uploader.upload(
+            fileImage.tempFilePath
+        );
+        data.body.pathImage = secure_url;
         
         //Busco el id de arrendador de acuerdo al id_usuario 
         let id_objeto = await getArrendadorIdModel(id_arrendador);

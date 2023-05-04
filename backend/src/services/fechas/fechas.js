@@ -22,6 +22,7 @@ const getUltimosPagosServices = async (id_usuario) => {
             let [informacionPagoPendiente] =  await getUltimosPagosModels(id_contrato, fecha);
             ultimosPagosRealizados.push(informacionPagoPendiente);
         }
+
         return ultimosPagosRealizados;
     } catch (error) {
         return error;

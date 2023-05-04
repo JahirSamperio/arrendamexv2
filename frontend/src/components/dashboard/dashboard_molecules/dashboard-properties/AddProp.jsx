@@ -40,7 +40,6 @@ export const AddProp = () => {
       num_estacionamientos: data.target.inmuebleParking.value,
       superficie_construida: data.target.superficieC.value,
       id_arrendador: localStorage.getItem('id'),
-     
     }
 
 
