@@ -72,10 +72,11 @@ export const DashboardCitas = () => {
                             nombreUsuario={element.nombreUsuario}
                             apellidos={element.apellidos}
                             fecha={element.fecha}
-                            hora={rap.hora}
-                            nombre={rap.nombre}
-                            id_usuario={rap.id_usuario}
-                            id_inmueble={rap.id_inmueble}
+                            hora={element.hora}
+                            nombre={element.nombre}
+                            id_usuario={element.id_usuario}
+                            id_inmueble={element.id_inmueble}
+                            id={element.id}
 
                           />
                         )

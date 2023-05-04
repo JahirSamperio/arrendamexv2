@@ -10,6 +10,7 @@ export const getPendingAppointment = () => async (dispatch) => {
         dispatch(fetchGetRequestedAppointment());
         
         const {data} = await axios.get(`http://localhost:3000/citas/getcita?id_usuario=${userID}`);
+        console.log(data.response)
         dispatch(fetchGetRequestedAppointmentSuccess(data.response));
 
     } catch (error) {
