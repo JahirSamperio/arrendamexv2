@@ -39,6 +39,7 @@ const getTotalPaymentsTodayControllers = async (req, res) => {
         const { id_usuario } = req.query;
         let today = await getTotalPaymentsTodayService(id_usuario);
         let response = today[0];
+        console.log(response)
         return res.status(200).json({
             response
         })

@@ -4,7 +4,7 @@ const initialState = {
     loading: null,
     error: null,
     success: null,
-    dataUserEdit: []
+    dataUserEdit: {}
 };
 
 export const editUserSlice = createSlice({

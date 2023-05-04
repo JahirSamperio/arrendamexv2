@@ -4,7 +4,7 @@ const initialState = {
     loading: null,
     error: null,
     success: null,
-    loginData: []
+    loginData: {}
 };
 
 export const loginUserSlice = createSlice({

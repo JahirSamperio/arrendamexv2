@@ -10,7 +10,6 @@ export const getTodayPayments = () => async (dispatch) => {
         dispatch(fetchGetTodayPaymentDate());
         
         const {data} = await axios.get(`http://localhost:3000/fechas/todaypayments?id_usuario=${userID}`);
-        console.log(data.response);
         dispatch(fetchGetTodayPaymentSuccess(data.response));
 
     } catch (error) {

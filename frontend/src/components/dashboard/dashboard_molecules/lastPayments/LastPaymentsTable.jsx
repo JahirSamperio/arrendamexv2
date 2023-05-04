@@ -16,10 +16,6 @@ export const LastPaymentsTable = () => {
     dispatch(getLastPayments());
   }, [])
 
-  useEffect(() => {
-    console.log(lastPaymentData);
-  }, [lastPaymentData])
-
 
 
   return (
@@ -38,11 +34,11 @@ export const LastPaymentsTable = () => {
                 lastPaymentData.map((element, index) => {
 
                   return (
-                    <>
+                    
                       
-                        <LastPayTI key={index} className="lpti"
+                        <LastPayTI   className="lpti"
 
-
+                          key={index}
                           name={element.nombreUsuario}
                           apellidos={element.apellidos}
                           date={element.fecha}
@@ -50,7 +46,7 @@ export const LastPaymentsTable = () => {
                           property={element.nombre}
                         />
                       
-                    </>
+                    
                   )
 
                 })
@@ -71,8 +67,8 @@ export const LastPaymentsTable = () => {
 
 const LastPayTI = ({ name = '-', apellidos = "-", date = '-', amount = ' -', property = '-', }) => {
   return (
-  <div className='lpti-container'>
-    <tr className='lpti-tr'>
+  
+    <tr className='lpti-tr lpti-container'>
     <td className="w-30 ">
       <div className="d-flex px-2 py-1 align-items-center">
         <div className="ms-4">
@@ -100,7 +96,7 @@ const LastPayTI = ({ name = '-', apellidos = "-", date = '-', amount = ' -', pro
       </div>
     </td>
   </tr>
-  </div>
+ 
   
   
 )}
