@@ -195,10 +195,10 @@ const getInmueblesLengthController = async (req, res) => {
 const getProfileInfoController = async (req, res) => {
     const { id_inmueble } = req.query;
     try {
-        let response = await getProfileInfoService(id_inmueble);
-        let perfil = response[0];
+        let informacion = await getProfileInfoService(id_inmueble);
+        let response = informacion[0];
         return res.status(200).json({
-            perfil 
+            response 
         })
 
     } catch (error) {

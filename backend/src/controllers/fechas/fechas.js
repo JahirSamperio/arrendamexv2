@@ -37,7 +37,8 @@ const getPendientesControllers = async (req, res) => {
 const getTotalPaymentsTodayControllers = async (req, res) => {
     try{
         const { id_usuario } = req.query;
-        let response = await getTotalPaymentsTodayService(id_usuario);
+        let today = await getTotalPaymentsTodayService(id_usuario);
+        let response = today[0];
         return res.status(200).json({
             response
         })
