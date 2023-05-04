@@ -159,8 +159,8 @@ export const AddProp = () => {
 
                 <div className="map-img">
                   <div className="apf-map">
-                    <input type="text" name='lat' placeholder='latitud' />
-                    <input type="text" name='lon' placeholder='longitud' />
+                    <input type="text" name='lat' placeholder='latitud'  className='apf-i'/>
+                    <input type="text" name='lon' placeholder='longitud' className='apf-i'/>
                   </div>
 
                   <div className="apf-img">

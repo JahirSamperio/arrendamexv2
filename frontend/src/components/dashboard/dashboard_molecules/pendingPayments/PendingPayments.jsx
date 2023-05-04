@@ -3,7 +3,7 @@ import './pendingpay.css'
 
 import { Link } from 'react-router-dom';
 import { BsArrowRightShort } from 'react-icons/bs'
-import { getPendingPayment } from '../../../../redux/actions/dates/getPendingPayments';
+import {getPendingPayments } from '../../../../redux/actions/dates/getPendingPayments'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -13,11 +13,14 @@ export const PendingPayments = () => {
 
   const dispatch = useDispatch();
 
-  const { success, pendingPaymentData } = useSelector((state) => state.dates.pendingPayments);
+  const { success,pendingPaymentData } = useSelector((state) => state.dates.pendingPayments);
+
+  console.log(pendingPaymentData);
 
   useEffect(() => {
-    dispatch(getPendingPayment());
+    dispatch(getPendingPayments());
   }, [])
+
 
   return (
     <div className="col-lg-5">
@@ -29,6 +32,14 @@ export const PendingPayments = () => {
           <ul className="list-group">
 
             {pendingPaymentData.map((element, index) => {
+                  
+                  return(
+
+                    <PendingPayment key={index}
+                     nombre={element.Nombre}
+                     leyenda={element.Leyenda}
+                    />
+                  )
 
             })}
 
@@ -42,14 +53,14 @@ export const PendingPayments = () => {
 
 
 
-const PendingPayment = ({nombre= '',costo='',fecha = ''}) => {
+const PendingPayment = ({nombre= '',fecha='',pago='',leyenda=`w`}) => {
 
   return (
     <li className="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
       <div className="d-flex align-items-center">
         <div className="d-flex flex-column">
           <h6 className="mb-1 text-dark text-sm">{nombre}</h6>
-          <span className="text-xs">{`Pago de ${costo}`} <span className="font-weight-bold"> {`Retrasado desde ${fecha}`}</span></span>
+          <span className="text-xs">{leyenda}</span>
         </div>
       </div>
       <div className="d-flex">

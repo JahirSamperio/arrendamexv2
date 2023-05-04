@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { fetchGetAllTenant,fetchGetAllTenantFailure,fetchGetAllTenantSuccess } from '../../slices/properties/getAllTenantSlice';
 
-export const getLastPayments = () => async (dispatch) => {
+export const getAllTenants = () => async (dispatch) => {
     
     const userID = localStorage.getItem('id');
 

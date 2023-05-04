@@ -26,9 +26,13 @@
 }
 
 .apf-map{
-    background-color: black;
+    background-color: rgb(254, 247, 247);
     width: 20em;
     height: 15em;
+    display: flex;
+    flex-direction: column;
+    padding:2em 4em ;
+    justify-content: space-around;
 }
 
 .apf-img{
