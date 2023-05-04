@@ -26,7 +26,6 @@ export const RentalView = ({ }) => {
 
   const { nombre, descripcion, tipoInmueble, id_arrendador, renta_venta, precio, estado, municipio, colonia, latitud, longitud, superficie_total, antiguedad, num_recamaras, num_estacionamientos, superficie_construida, pathImage } = rentalViewData[0];
 
-
   useEffect(() => {
     dispatch(getRentalView(id_propertie));
   }, [])

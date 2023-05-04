@@ -159,8 +159,8 @@ export const AddProp = () => {
 
                 <div className="map-img">
                   <div className="apf-map">
-                    <input type="num" name='lat' placeholder='latitud' />
-                    <input type="num" name='lon' placeholder='longitud' />
+                    <input type="text" name='lat' placeholder='latitud' />
+                    <input type="text" name='lon' placeholder='longitud' />
                   </div>
 
                   <div className="apf-img">
@@ -173,32 +173,32 @@ export const AddProp = () => {
 
                   <div className="apf-i-cont">
                     <label htmlFor="inmuebleSuperT">Superficie </label>
-                    <input type="number" name="superficieT" id="" className='apf-numi apf-i' />
+                    <input type="text" name="superficieT" id="" className='apf-numi apf-i' />
                   </div>
 
                   <div className="apf-i-cont">
                     <label htmlFor="inmuebleSuperC">Construida </label>
-                    <input type="number" name="superficieC" id="" className='apf-numi apf-i' />
+                    <input type="text" name="superficieC" id="" className='apf-numi apf-i' />
                   </div>
 
                   <div className="apf-i-cont">
                     <label htmlFor="inmuebleAntiguedad">Antigüedad </label>
-                    <input type="number" name="inmuebleAntiguedad" id="" className='apf-numi apf-i' />
+                    <input type="text" name="inmuebleAntiguedad" id="" className='apf-numi apf-i' />
                   </div>
 
                   <div className="apf-i-cont">
                     <label htmlFor="inmuebleBanos">Baños </label>
-                    <input type="number" name="inmuebleBanos" id="" className='apf-numi apf-i' />
+                    <input type="text" name="inmuebleBanos" id="" className='apf-numi apf-i' />
                   </div>
 
                   <div className="apf-i-cont">
                     <label htmlFor="inmuebleRecamaras">Recamaras </label>
-                    <input type="number" name="inmuebleRecamaras" id="" className='apf-numi apf-i' />
+                    <input type="text" name="inmuebleRecamaras" id="" className='apf-numi apf-i' />
                   </div>
 
                   <div className="apf-i-cont">
                     <label htmlFor="inmuebleParking">Estacionamientos </label>
-                    <input type="number" name='inmuebleParking' className='apf-numi apf-i' />
+                    <input type="text" name='inmuebleParking' className='apf-numi apf-i' />
                   </div>
 
                 </div>

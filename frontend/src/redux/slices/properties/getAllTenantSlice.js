@@ -4,25 +4,25 @@ const initialState = {
     loading: false,
     error: null,
     success: false,
-    todayPaymentData: {}
+    tenantsData: []
 };
 
-export const getTodayPaymentSlice = createSlice({
-    name: 'getTodayPaymentSlice',
+export const getAllTenantSlice = createSlice({
+    name: 'getAllTenantSlice',
     initialState,
     reducers: {
-        fetchGetTodayPaymentDate: (state, action) => {
+        fetchGetAllTenant: (state, action) => {
             state.loading = true;
             state.error = null;
             state.success = null;
         },
-        fetchGetTodayPaymentSuccess: (state, action) => {
+        fetchGetAllTenantSuccess: (state, action) => {
             state.loading = null,
                 state.error = null,
                 state.success = true;
-            state.todayPaymentData = action.payload;
+            state.tenantsData = action.payload;
         },
-        fetchGetTodayPaymentFailure: (state, action) => {
+        fetchGetAllTenantFailure: (state, action) => {
             state.error = action.payload;
             state.loading = false;
             state.success = false;
@@ -31,5 +31,5 @@ export const getTodayPaymentSlice = createSlice({
 });
 
 export const {
-    fetchGetTodayPaymentDate,fetchGetTodayPaymentFailure,fetchGetTodayPaymentSuccess
-} = getTodayPaymentSlice.actions;
+    fetchGetAllTenant,fetchGetAllTenantFailure,fetchGetAllTenantSuccess
+} = getAllTenantSlice.actions;

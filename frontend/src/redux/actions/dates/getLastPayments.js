@@ -10,7 +10,6 @@ export const getLastPayments = () => async (dispatch) => {
         dispatch(fetchGetLastPayments());
         
         const {data} = await axios.get(`http://localhost:3000/fechas/lastpayments?id_usuario=${userID}`);
-        console.log(data.response);
         dispatch(fetchGetLastPaymentsSuccess(data.response));
 
     } catch (error) {

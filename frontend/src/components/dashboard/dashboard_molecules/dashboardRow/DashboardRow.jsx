@@ -1,33 +1,36 @@
 import React, { useEffect } from 'react'
 import './dashboardRow.css';
 
-import {GiReceiveMoney} from'react-icons/gi';
-import {FaTasks} from 'react-icons/fa';
-import {MdEmojiPeople} from 'react-icons/md';
-import {TbCoins} from 'react-icons/tb';
-import {BsArrowRightShort} from 'react-icons/bs';
-import {useDispatch,useSelector} from 'react-redux';
+import { GiReceiveMoney } from 'react-icons/gi';
+import { FaTasks } from 'react-icons/fa';
+import { MdEmojiPeople } from 'react-icons/md';
+import { TbCoins } from 'react-icons/tb';
+import { BsArrowRightShort } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getTodayPayments } from '../../../../redux/actions/dates/getTodayPayments';
+import { getPendings } from '../../../../redux/actions/dates/getPendings'
+import { getPendingAppointment } from '../../../../redux/actions/appointments/getPendingAppointment';
 
 
+export const CardOne = () => {
 
-export const CardOne = ({depositosHoy ="",fechaHoy =""}) => {
-
-    const dispatch = useDispatch();
-    const {loanding,success,error,todayPaymentData} = useSelector((state) => state.dates.todayPayment);
-
-    const {total} = todayPaymentData[0];
-    
-    useEffect(() =>{
-        dispatch(getTodayPayments());
-    },[]);
+    // const dispatch = useDispatch();
+    // const data = useSelector((state) => state.dates.todayPayment);
 
 
-    useEffect(() =>{
-        console.log(todayPaymentData);
-    },[todayPaymentData])
+    // const { todayPaymentData } = data;
+    // const total = todayPaymentData[0].total;
+
+
+    // useEffect(() => {
+    //     dispatch(getTodayPayments());
+    // }, [data]);
+
+    // useEffect(() => {
+    //     console.log(total);
+    // }, [])
 
     return (
         <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -38,7 +41,7 @@ export const CardOne = ({depositosHoy ="",fechaHoy =""}) => {
                             <div className="numbers">
                                 <p className="text-sm mb-0 text-uppercase font-weight-bold">Depósitos hoy</p>
                                 <h5 className="font-weight-bolder">
-                                    {total}
+                                    
                                 </h5>
                                 <p className="mb-0">
                                     00/00/0000
@@ -47,7 +50,7 @@ export const CardOne = ({depositosHoy ="",fechaHoy =""}) => {
                         </div>
                         <div className="col-4 text-end">
                             <div className="icon-shape background-gradient1">
-                                <i className="ni" aria-hidden="true"><GiReceiveMoney/></i>
+                                <i className="ni" aria-hidden="true"><GiReceiveMoney /></i>
                             </div>
                         </div>
                     </div>
@@ -58,7 +61,25 @@ export const CardOne = ({depositosHoy ="",fechaHoy =""}) => {
 }
 
 
-export const CardTwo = ({pendientes=""}) => {
+export const CardTwo = () => {
+
+    // const dispatch = useDispatch();
+    // const data2 = useSelector((state) => state.dates.pending);
+
+
+    // const { pendingData } = data2;
+    // const total = pendingData[0].total;
+
+    // useEffect(() => {
+    //     dispatch(getPendings());
+    // }, [data2]);
+
+    // useEffect(() =>{
+    // console.log(data);
+    // },[])
+
+
+
     return (
 
         <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -69,18 +90,18 @@ export const CardTwo = ({pendientes=""}) => {
                             <div className="numbers">
                                 <p className="text-sm mb-0 text-uppercase font-weight-bold">Pendientes</p>
                                 <h5 className="font-weight-bolder">
-                                    5
+                                    
                                 </h5>
                                 <div className="mb-0">
                                     <div className="ptm">
-                                        Ver más <Link to={''} className="btn-link"><BsArrowRightShort className="btn-link-icon"/></Link>
+                                        Ver más <Link to={''} className="btn-link"><BsArrowRightShort className="btn-link-icon" /></Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-4 text-end">
                             <div className="icon-shape background-gradient2">
-                                <i className="ni" aria-hidden="true"><FaTasks/></i>
+                                <i className="ni" aria-hidden="true"><FaTasks /></i>
                             </div>
                         </div>
                     </div>
@@ -92,6 +113,24 @@ export const CardTwo = ({pendientes=""}) => {
 
 
 export const CardThree = () => {
+
+
+
+    // const dispatch = useDispatch();
+
+    // const {loanding,success,error,pendingAppointmentData} = useSelector((state) => state.appointments.pending);
+
+    // useEffect(() =>{
+    //     dispatch(getPendingAppointment());
+    // },[]);
+
+
+    // useEffect(() =>{
+    //     console.log(pendingAppointmentData);
+    // },[pendingAppointmentData]);
+
+    // const {total} = pendingAppointmentData;
+
 
     return (
         <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -111,7 +150,7 @@ export const CardThree = () => {
                         </div>
                         <div className="col-4 text-end">
                             <div className="icon-shape background-gradient3">
-                                <i className="ni" aria-hidden="true"><MdEmojiPeople/></i>
+                                <i className="ni" aria-hidden="true"><MdEmojiPeople /></i>
                             </div>
                         </div>
                     </div>
@@ -141,7 +180,7 @@ export const CardFour = () => {
                         </div>
                         <div className="col-4 text-end">
                             <div className="icon-shape background-gradient4">
-                                <i className="ni" aria-hidden="true"><TbCoins/></i>
+                                <i className="ni" aria-hidden="true"><TbCoins /></i>
                             </div>
                         </div>
                     </div>

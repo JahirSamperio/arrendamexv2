@@ -4,7 +4,7 @@ const initialState = {
     loading: false,
     error: null,
     success: false,
-    pendingData: []
+    pendingData: {}
 };
 
 export const getPendingSlice = createSlice({

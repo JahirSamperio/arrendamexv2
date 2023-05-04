@@ -196,6 +196,7 @@ h6, .h6, .h6 {
     width: 660px;
     display: flex;
     justify-content:space-between;
+    border-bottom: solid .1px #67748e;
 }
 
 .lpti-container{

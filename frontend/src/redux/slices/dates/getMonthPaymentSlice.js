@@ -4,7 +4,7 @@ const initialState = {
     loading: false,
     error: null,
     success: false,
-    monthPaymentData: []
+    monthPaymentData: {}
 };
 
 export const getMonthPaymentSlice = createSlice({
