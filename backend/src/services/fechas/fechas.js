@@ -88,13 +88,13 @@ const getPendientesServices = async (id_usuario) => {
 
             mesConsultaContrato = fechaFormateada.substring(5, 7);
             diaConsultaContrato = fechaFormateada.substring(8, 10);
-
+            
             //Busca el ultimo pago que coincida con el contrato del arrendatario
             for (let j = 0; j < ultimosPagos.length; j++) {
                 if (response[i].id === ultimosPagos[j].id_contrato) {
                     mesUltimoPago = ultimosPagos[j].fecha.substring(5, 7);
                     diaUltimoPago = ultimosPagos[j].fecha.substring(8, 10);
-                    if(mesUltimoPago < mesActual && (diaUltimoPago < diaConsultaContrato && diaActual > diaConsultaContrato)){
+                    if(mesUltimoPago < mesActual && (diaUltimoPago <= diaConsultaContrato && diaActual > diaConsultaContrato)){
                         //Busca los nombres de acuerdo al contrato
                         let nombres = await getUserByContratoIdModels(response[i].id);
                         const nombre = nombres[0].nombre;
@@ -102,9 +102,11 @@ const getPendientesServices = async (id_usuario) => {
                         const total = nombres[0].total;
 
                         //Leyenda con la informacion del pago pendiente
-                        let leyenda = `${nombre} ${apellidos} pago de ${total} Retrasado desde ${diaConsultaContrato}/${mesActual}/${añoActual}`;
+                        let nombrePendiente = `${nombre} ${apellidos}`;
+                        let leyenda = `Pago de ${total} Retrasado desde ${diaConsultaContrato}/${mesActual}/${añoActual}`;
                         let pendiente = {
-                            Info: leyenda
+                            Nombre: nombrePendiente,
+                            Leyenda: leyenda
                         }    
                         pendientes.push(pendiente);
                     }
