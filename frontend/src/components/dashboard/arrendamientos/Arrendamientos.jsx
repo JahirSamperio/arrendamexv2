@@ -12,8 +12,36 @@ import { Contract } from '../dashboard_molecules/dashboard-contract/Contract';
 import { Property } from '../dashboard_molecules/dashboard-properties/Property';
 
 
+import { useDispatch, useSelector } from 'react-redux'
+
+import { getAllTenants } from '../../../redux/actions/properties/getAllTenants';
+import { getPropInfo } from '../../../redux/actions/properties/getPropInfo';
+
+import { useEffect } from 'react';
+
+
+
+
 
 export const Arrendamientos = () => {
+
+  const dispatch = useDispatch();
+
+  const { tenantsData } = useSelector((state) => state.properties.getTenants);
+
+  useEffect(() => {
+    dispatch(getAllTenants());
+  }, [])
+
+  const { propInfoData } = useSelector((state) => state.properties.getInfo);
+
+  useEffect(() => {
+    dispatch(getPropInfo());
+  }, []);
+
+
+
+
   return (
     <div className='container'>
 
@@ -41,9 +69,20 @@ export const Arrendamientos = () => {
                     <th className="text-secondary opacity-7"></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <Contract />
-                  <Contract />
+                <tbody className='tttbb'>
+
+                  {tenantsData.map((element, index) => {
+
+                    return (
+                      <Contract key={index}
+                        nombre={element.nombreUsuario}
+                        correo={element.email}
+                        nombreInmueble={element.nombre}
+                        tipoIn={element.tipoInmueble}
+                        fecha={element.fecha_pago}
+                      />
+                    )
+                  })}
 
 
                 </tbody>
@@ -68,9 +107,23 @@ export const Arrendamientos = () => {
 
                   </tr>
                 </thead>
-                <tbody>
-                  <Property/>
-                  <Property/>
+                <tbody className='tttbb'>
+
+                  {propInfoData.map((element, index) => {
+
+                    return (
+                      <Property key={index}
+                        nombre={element.nombre}
+                        precio={element.precio}
+                        tipo={element.tipoInmueble}
+
+                      />
+                    )
+
+
+                  })}
+
+
                 </tbody>
               </table>
 
