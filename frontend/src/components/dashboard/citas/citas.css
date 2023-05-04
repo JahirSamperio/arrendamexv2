@@ -8,6 +8,7 @@
 }
 
 .list-g {
+    overflow: auto;
     --bs-list-group-color: inherit;
     --bs-list-group-bg: #fff;
     --bs-list-group-border-color: rgba(0, 0, 0, 0.125);
@@ -30,5 +31,6 @@
     padding-left: 0;
     margin-bottom: 0;
     border-radius: var(--bs-list-group-border-radius);
+ 
 }
 
