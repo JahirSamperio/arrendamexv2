@@ -10,7 +10,7 @@ export const requestAppointment = (datos) => async (dispatch) => {
 
         dispatch(fetchrequestAppointment());
         console.log(datos);
-        const {data} = await axios.post('http://localhost:3000/citas/sendcita', datos);
+        const {data} = await axios.post('http://localhost:3000/citas/createcita', datos);
         console.log(data.response);
         dispatch(fetchRequestAppointmentSuccess(data.response));
 

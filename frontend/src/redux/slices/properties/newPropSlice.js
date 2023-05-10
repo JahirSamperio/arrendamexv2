@@ -37,8 +37,5 @@ export const newPropSlice = createSlice({
 
 
 export const {
-    fetchNewPropSuccess,
-    fetchNewProp,
-    fetchNewPropFailure,
-    resetDataNewPropProcess
+fetchNewProp,fetchNewPropFailure,fetchNewPropSuccess,resetDataNewPropProcess
 } = newPropSlice.actions;

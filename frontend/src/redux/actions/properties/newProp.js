@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { fetchNewProp,fetchNewPropFailure,fetchNewPropSuccess } from '../../slices/properties/newPropSlice';
+
+import {fetchNewProp,fetchNewPropFailure,fetchNewPropSuccess} from  '../../slices/properties/newPropSlice';
 
 
 export const newProp = (datosPropiedad) => async (dispatch) => {
@@ -8,7 +9,7 @@ export const newProp = (datosPropiedad) => async (dispatch) => {
 
     try {
         dispatch(fetchNewProp());
-        const response = await axios.post(`http://localhost:3000/inmueble/newInmueble`, datosPropiedad);
+        const {data} = await axios.post(`http://localhost:3000/inmueble/newInmueble`, datosPropiedad);
         console.log(response.data);
         dispatch(fetchNewPropSuccess(data.response));
     } catch (error) {

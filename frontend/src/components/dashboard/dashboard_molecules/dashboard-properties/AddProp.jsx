@@ -29,6 +29,7 @@ export const AddProp = () => {
       tipoInmueble: data.target.propType.value,
       renta_venta: data.target.propSpin.value,
       precio: data.target.precioInmueble.value,
+      id_arrendador: localStorage.getItem('id'),
       estado: data.target.inmuebleEstado.value,
       municipio: data.target.inmuebleMunicipio.value,
       colonia: data.target.inmuebleColonia.value,
@@ -39,7 +40,7 @@ export const AddProp = () => {
       num_recamaras: data.target.inmuebleRecamaras.value,
       num_estacionamientos: data.target.inmuebleParking.value,
       superficie_construida: data.target.superficieC.value,
-      id_arrendador: localStorage.getItem('id'),
+      
     }
 
 

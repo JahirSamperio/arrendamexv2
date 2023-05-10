@@ -16,21 +16,15 @@ import { getPendingAppointment } from '../../../../redux/actions/appointments/ge
 
 export const CardOne = () => {
 
-    // const dispatch = useDispatch();
-    // const data = useSelector((state) => state.dates.todayPayment);
+    const dispatch = useDispatch();
+    const todayPaymentData = useSelector((state) => state.dates.todayPayment);
 
 
-    // const { todayPaymentData } = data;
-    // const total = todayPaymentData[0].total;
+    useEffect(() => {
+        dispatch(getTodayPayments());
+    }, [todayPaymentData]);
 
 
-    // useEffect(() => {
-    //     dispatch(getTodayPayments());
-    // }, [data]);
-
-    // useEffect(() => {
-    //     console.log(total);
-    // }, [])
 
     return (
         <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -41,7 +35,7 @@ export const CardOne = () => {
                             <div className="numbers">
                                 <p className="text-sm mb-0 text-uppercase font-weight-bold">Depósitos hoy</p>
                                 <h5 className="font-weight-bolder">
-                                    $ 5000
+                                    { 'a' }
                                 </h5>
                                 <p className="mb-0">
                                     2023/05/04

@@ -11,7 +11,7 @@ body{
 
 
 .item_container{
-    background-color: #bcbcbc;
+    background-color: #dedede;
     width: 85em;
     height: fit-content;
     border-radius: 8px;
@@ -21,6 +21,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     row-gap: 1em;
+    padding: 2em 2em 2.6em 3.8em;
 }
 
 .card_row{

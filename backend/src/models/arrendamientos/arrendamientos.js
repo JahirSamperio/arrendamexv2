@@ -4,7 +4,7 @@ const {conexion} = require('../../db/config');
 function getArrendamientosModel(id_usuario) {
     return new Promise((resolve, reject) => {
         conexion.query(
-            `SELECT inmuebles.nombre, contratos.fecha_pago, contratos.total
+            `SELECT inmuebles.nombre, contratos.fecha_pago, contratos.total, contratos.id_inmueble
             FROM contratos
             JOIN inmuebles
             ON contratos.id_inmueble = inmuebles.id
