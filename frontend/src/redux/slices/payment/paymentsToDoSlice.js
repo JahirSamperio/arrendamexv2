@@ -4,25 +4,25 @@ const initialState = {
     loading: false,
     error: null,
     success: false,
-    todayPaymentData: []
+    payItemData: []
 };
 
-export const getTodayPaymentSlice = createSlice({
-    name: 'getTodayPaymentSlice',
+export const paymentToDoSlice = createSlice({
+    name: 'paymentToDoSlice',
     initialState,
     reducers: {
-        fetchGetTodayPaymentDate: (state, action) => {
+        fetchGetToDoPayment: (state, action) => {
             state.loading = true;
             state.error = null;
             state.success = null;
         },
-        fetchGetTodayPaymentSuccess: (state, action) => {
+        fetchGetToDoPaymentSuccess: (state, action) => {
             state.loading = null,
                 state.error = null,
                 state.success = true;
-            state.todayPaymentData = action.payload;
+            state.payItemData = action.payload;
         },
-        fetchGetTodayPaymentFailure: (state, action) => {
+        fetchGetToDoPaymentFailure: (state, action) => {
             state.error = action.payload;
             state.loading = false;
             state.success = false;
@@ -31,5 +31,5 @@ export const getTodayPaymentSlice = createSlice({
 });
 
 export const {
-    fetchGetTodayPaymentDate,fetchGetTodayPaymentFailure,fetchGetTodayPaymentSuccess
-} = getTodayPaymentSlice.actions;
+    fetchGetToDoPayment,fetchGetToDoPaymentFailure,fetchGetToDoPaymentSuccess
+} = paymentToDoSlice.actions;

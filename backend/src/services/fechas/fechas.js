@@ -122,12 +122,12 @@ const getPendientesServices = async (id_usuario) => {
 const getTotalPaymentsTodayService = async (id_usuario) => {
     try{
         let response = await getTotalPaymentsTodayModels(id_usuario);
-        let [{'SUM(pagos_paypal.total)': total}] = response;
-        if(total === null){
-            response = [{
-                total: 0
-            }]
-        }
+        // let [{'SUM(pagos_paypal.total)': total}] = response;
+        // if(total === null){
+        //     response = [{
+        //         total: 0
+        //     }]
+        // }
         return response;
     } catch(error){
         return error;

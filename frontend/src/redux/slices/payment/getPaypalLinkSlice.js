@@ -4,25 +4,25 @@ const initialState = {
     loading: false,
     error: null,
     success: false,
-    todayPaymentData: []
+    linkData: {}
 };
 
-export const getTodayPaymentSlice = createSlice({
-    name: 'getTodayPaymentSlice',
+export const getPaypalLinkSlice = createSlice({
+    name: 'getPaypalLinkSlice',
     initialState,
     reducers: {
-        fetchGetTodayPaymentDate: (state, action) => {
+        fetchGetPaypalLink: (state, action) => {
             state.loading = true;
             state.error = null;
             state.success = null;
         },
-        fetchGetTodayPaymentSuccess: (state, action) => {
+        fetchGetPaypalLinkSuccess: (state, action) => {
             state.loading = null,
                 state.error = null,
                 state.success = true;
-            state.todayPaymentData = action.payload;
+            state.linkData = action.payload;
         },
-        fetchGetTodayPaymentFailure: (state, action) => {
+        fetchGetPaypalLinkFailure: (state, action) => {
             state.error = action.payload;
             state.loading = false;
             state.success = false;
@@ -31,5 +31,5 @@ export const getTodayPaymentSlice = createSlice({
 });
 
 export const {
-    fetchGetTodayPaymentDate,fetchGetTodayPaymentFailure,fetchGetTodayPaymentSuccess
-} = getTodayPaymentSlice.actions;
+    fetchGetPaypalLink,fetchGetPaypalLinkFailure,fetchGetPaypalLinkSuccess
+} = getPaypalLinkSlice.actions;

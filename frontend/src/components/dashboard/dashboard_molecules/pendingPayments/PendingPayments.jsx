@@ -15,8 +15,6 @@ export const PendingPayments = () => {
 
   const { success,pendingPaymentData } = useSelector((state) => state.dates.pendingPayments);
 
-  console.log(pendingPaymentData);
-
   useEffect(() => {
     dispatch(getPendingPayments());
   }, [])
